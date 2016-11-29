@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zc.first.mapper.ArticleMapper" >
+	<insert id="insert" parameterType="article" >
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into F_ARTICLE(DESCRIPTION,IMGURL,TYPE_ID,AUTHOR,CREATE_DATE,MODIFY_DATE,STATE)
+		 value(#{description},#{imgUrl},#{type},#{userName},#{modifyDate},#{createDate},#{state})
+	</insert>
+	
+	
+	
+	<select id="selectArticleById" parameterType="int" resultType="user">
+		select * from F_USER where id=#{id}
+	</select>
+	<resultMap type="article" id="article_articleDetail">
+		<id column="id" property="id"/>
+		 <result column="description" property="description"/>
+		 <result column="imgUrl" property="imgUrl"/>
+		 <result column="create_Date" property="createDate"/>
+		 <result column="modify_Date" property="modifyDate"/>
+		 <result column="state" property="state"/>
+		 <result column="type_id" property="type"/>
+		 <result column="AUTHOR" property="userName"/>
+		 <!-- 文章图片详情 -->
+		 <collection property="articleDetails" ofType="articleDetail">
+		 	<id column="b_id" property="id"/>
+		 	<result column="b_DESCRIPTION" property="description"/>
+		 	<result column="b_url" property="img_url"/>
+		 	<result column="b_cd" property="createDate"/>
+		 	<result column="b_md" property="modifyDate"/>
+		 </collection>
+	</resultMap>
+	
+	<select id="selectArticleByStatus" parameterType="int" resultMap="article_articleDetail">
+			SELECT a.*,b.ID b_id,b.CREATE_DATE b_cd,b.DESCRIPTION b_DESCRIPTION,b.IMG_URL b_url,b.MODIFY_DATE b_md 
+				from f_article a,f_article_detail b WHERE a.ID = b.ARTICLE_ID 
+					AND a.STATE = #{status}
+	</select>
+	<update id="updateArticleById" parameterType="articleVo">
+		UPDATE f_article SET STATE = #{state},AUTHOR=#{userName},MODIFY_DATE=#{modifyDate} WHERE ID = #{id};
+	</update>
+	
+</mapper>
