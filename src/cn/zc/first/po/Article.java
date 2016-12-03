@@ -16,6 +16,8 @@ public class Article implements Serializable {
 	private Date modifyDate;
 	private Date createDate;
 	private int state;
+	private int open;
+	private int indexNum;
 	private List<ArticleDetail> articleDetails;
 	
 	public int getId() {
@@ -71,5 +73,17 @@ public class Article implements Serializable {
 	}
 	public void setType(int type) {
 		this.type = type;
+	}
+	public int getOpen() {
+		return open;
+	}
+	public void setOpen(int open) {
+		this.open = open;
+	}
+	public int getIndexNum() {
+		return indexNum;
+	}
+	public void setIndexNum(int indexNum) {
+		this.indexNum = indexNum;
 	}
 }

@@ -14,4 +14,6 @@ public interface ArticleMapper {
     void updateArticleById(ArticleVo avo);
     
     List<Article> selectForIndex();
+    
+    Integer selectMaxIndex();
 }

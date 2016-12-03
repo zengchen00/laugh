@@ -73,9 +73,18 @@
 					 <button id="addRow" type="button" class="btn btn-primary">新增一行</button>
 				</td>
 				<td>
-				<span style="float: right; margin-right: 1rem;padding-top: 0.5rem;">总行数：<strong id="totalNum">10</strong></span>
+				<span style="float: right; margin-right: 1rem;padding-top: 0.5rem;">总行数：<strong id="totalNum"></strong></span>
 				</td>
 			  </tr>
+<!-- 			   <tr> -->
+<!-- 			    	<td style="text-align:center;vertical-align:middle;"> -->
+<!-- 						<span style="width:10%;">新增期数：</span> -->
+<!-- 						<input id="" name="" class="form-control" type="text" style="display: inline;"> -->
+<!-- 			    	</td> -->
+<!-- 			    	<td> -->
+<!-- 						<span style="float: right; margin-right: 1rem;padding-top: 0.5rem;">当前总期数：<strong id="">20</strong></span> -->
+<!-- 					</td> -->
+<!-- 			    </tr> -->
 			    <tr>
 			    	<td style="text-align:center;vertical-align:middle;">
 						<button name="delRow" type="button" class="btn btn-warning">删除行</button>

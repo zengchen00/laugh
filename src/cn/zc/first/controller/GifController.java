@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cn.zc.first.common.CommonFunctions;
 import cn.zc.first.common.MyConstants;
+import cn.zc.first.common.PropertiesUtil;
 import cn.zc.first.po.Article;
 import cn.zc.first.po.ArticleDetail;
 import cn.zc.first.po.ArticleVo;
@@ -152,7 +153,8 @@ public class GifController {
         	MultipartFile multipartFile = file.get(0);
         	String filePath = SaveFileFromInputStream(multipartFile,multipartFile.getInputStream(),multipartFile.getOriginalFilename());//封面图片
         	String fileDesc = descs[0];//封面图片描述
-        	Article article = saveGifArticle(currentUser,filePath,fileDesc);
+        	int indexNum = articleServiceImpl.selectMaxIndex() + 1;
+        	Article article = saveGifArticle(currentUser,filePath,fileDesc,indexNum);
         	
         	//保存gif文章详情数据
         	for (int i = 0; i < file.size(); i++) {
@@ -191,7 +193,7 @@ public class GifController {
 	 * @param fileDesc
 	 * @return
 	 */
-	private Article saveGifArticle(User currentUser, String filePath, String fileDesc) {
+	private Article saveGifArticle(User currentUser, String filePath, String fileDesc,int indexNum) {
 		Article article = new Article();
 		article.setType(1);
 		article.setCreateDate(new Date());
@@ -199,6 +201,7 @@ public class GifController {
 		article.setDescription(fileDesc);
 		article.setImgUrl(filePath);
 		article.setState(1);
+		article.setIndexNum(indexNum);
 		article.setUserName(currentUser.getName());
 		articleServiceImpl.insert(article);
 		return article;
@@ -214,10 +217,11 @@ public class GifController {
 	 * @throws IOException
 	 */
 	public String SaveFileFromInputStream(MultipartFile multipartFile ,InputStream stream,String fileName) throws IOException{      
-	       String path = MyConstants.GIF_SERVER_PATH + File.separator 
-	    		   + commonFunctions.getCurrentTimeStr() + "_" + fileName;
+		   String newFileName = commonFunctions.getCurrentTimeStr() + "_" + fileName;
+	       String path = PropertiesUtil.getValue("gifServerPath") + File.separator 
+	    		   + newFileName;
 	       File newImage = new File(path);
 	       multipartFile.transferTo(newImage);
-	       return path;
+	       return newFileName;
 	}       
 }

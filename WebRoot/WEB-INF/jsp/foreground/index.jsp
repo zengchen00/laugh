@@ -16,11 +16,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.zlight.menu.1.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/respond.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script>
-		$(document).ready(function(){
-			$('#zlight-nav').zlightMenu();
-		});
-</script>
 </head>
 <body class="body">
 <div class="container" id="main">

@@ -10,4 +10,5 @@ public interface ArticleService {
 	public List<Article> selectArticleByStatus(int status);
 	public void updateById(ArticleVo avo);
 	public List<Article> selectForIndex();
+	public int selectMaxIndex();
 }

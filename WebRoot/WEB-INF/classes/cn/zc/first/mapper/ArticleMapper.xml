@@ -5,8 +5,8 @@
 		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
-		insert into F_ARTICLE(DESCRIPTION,IMGURL,TYPE_ID,AUTHOR,CREATE_DATE,MODIFY_DATE,STATE)
-		 value(#{description},#{imgUrl},#{type},#{userName},#{modifyDate},#{createDate},#{state})
+		insert into F_ARTICLE(DESCRIPTION,IMGURL,TYPEID,AUTHOR,CREATEDATE,MODIFYDATE,STATE,INDEXNUM)
+		 value(#{description},#{imgUrl},#{type},#{userName},#{modifyDate},#{createDate},#{state},#{indexNum})
 	</insert>
 	
 	
@@ -18,10 +18,12 @@
 		<id column="id" property="id"/>
 		 <result column="description" property="description"/>
 		 <result column="imgUrl" property="imgUrl"/>
-		 <result column="create_Date" property="createDate"/>
-		 <result column="modify_Date" property="modifyDate"/>
+		 <result column="createDate" property="createDate"/>
+		 <result column="modifyDate" property="modifyDate"/>
 		 <result column="state" property="state"/>
-		 <result column="type_id" property="type"/>
+		 <result column="open" property="open"/>
+		 <result column="indexnum" property="indexNum"/>
+		 <result column="typeid" property="type"/>
 		 <result column="AUTHOR" property="userName"/>
 		 <!-- 文章图片详情 -->
 		 <collection property="articleDetails" ofType="articleDetail">
@@ -39,7 +41,16 @@
 					AND a.STATE = #{status}
 	</select>
 	<update id="updateArticleById" parameterType="articleVo">
-		UPDATE f_article SET STATE = #{state},AUTHOR=#{userName},MODIFY_DATE=#{modifyDate} WHERE ID = #{id};
+		UPDATE f_article SET STATE = #{state},AUTHOR=#{userName},MODIFYDATE=#{modifyDate} WHERE ID = #{id};
 	</update>
+	<!-- 首页展示 -->
+	<select id="selectForIndex" resultType="article">
+		select * from f_article where STATE = '2' ORDER BY INDEXNUM DESC LIMIT 0,3;
+	</select>
+	
+	<!-- 查出最大期数 -->
+	<select id="selectMaxIndex" resultType="java.lang.Integer">
+		SELECT MAX(INDEXNUM) FROM f_article WHERE STATE IN (1,2);
+	</select>
 	
 </mapper>

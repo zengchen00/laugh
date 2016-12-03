@@ -1,6 +1,7 @@
 package cn.zc.first.service.impl;
 
 import java.util.List;
+import org.apache.commons.lang.StringUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,6 +33,15 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public List<Article> selectForIndex() {
 		return articleMapper.selectForIndex();
+	}
+
+	@Override
+	public int selectMaxIndex() {
+		Integer indexNum = articleMapper.selectMaxIndex();
+		if(indexNum == null){
+			return 0;
+		}
+		return indexNum;
 	}
 
 }

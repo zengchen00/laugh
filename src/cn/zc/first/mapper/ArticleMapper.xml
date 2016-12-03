@@ -5,8 +5,8 @@
 		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
-		insert into F_ARTICLE(DESCRIPTION,IMGURL,TYPEID,AUTHOR,CREATEDATE,MODIFYDATE,STATE)
-		 value(#{description},#{imgUrl},#{type},#{userName},#{modifyDate},#{createDate},#{state})
+		insert into F_ARTICLE(DESCRIPTION,IMGURL,TYPEID,AUTHOR,CREATEDATE,MODIFYDATE,STATE,INDEXNUM)
+		 value(#{description},#{imgUrl},#{type},#{userName},#{modifyDate},#{createDate},#{state},#{indexNum})
 	</insert>
 	
 	
@@ -21,6 +21,8 @@
 		 <result column="createDate" property="createDate"/>
 		 <result column="modifyDate" property="modifyDate"/>
 		 <result column="state" property="state"/>
+		 <result column="open" property="open"/>
+		 <result column="indexnum" property="indexNum"/>
 		 <result column="typeid" property="type"/>
 		 <result column="AUTHOR" property="userName"/>
 		 <!-- 文章图片详情 -->
@@ -43,7 +45,12 @@
 	</update>
 	<!-- 首页展示 -->
 	<select id="selectForIndex" resultType="article">
-		select * from f_article where STATE = '2' ORDER BY MODIFYDATE DESC LIMIT 0,3;
+		select * from f_article where STATE = '2' ORDER BY INDEXNUM DESC LIMIT 0,3;
+	</select>
+	
+	<!-- 查出最大期数 -->
+	<select id="selectMaxIndex" resultType="java.lang.Integer">
+		SELECT MAX(INDEXNUM) FROM f_article WHERE STATE IN (1,2);
 	</select>
 	
 </mapper>

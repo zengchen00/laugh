@@ -73,7 +73,10 @@
 			  	<td class="eleCenter" style="width:10%">
 					 序号
 				</td>
-				<td style="width:60%" class="eleCenter">
+				<td style="width:20%" class="eleCenter">
+				期数
+				</td>
+				<td style="width:40%" class="eleCenter">
 				标题
 				</td>
 				<td style="width:30%" class="eleCenter">
@@ -85,7 +88,10 @@
 				  	<td class="eleCenter" style="width:10%">
 				  	${status.index +1}
 					</td>
-					<td style="width:60%" class="eleCenter">
+					<td style="width:20%" class="eleCenter">
+					${item.indexNum}
+					</td>
+					<td style="width:40%" class="eleCenter">
 					${item.description}
 					</td>
 					<td style="width:30%" class="eleCenter">
