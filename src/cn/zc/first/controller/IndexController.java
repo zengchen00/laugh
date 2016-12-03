@@ -1,21 +1,28 @@
 package cn.zc.first.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import cn.zc.first.common.CommonFunctions;
+import cn.zc.first.po.Article;
+import cn.zc.first.service.ArticleService;
 
 @Controller
 @RequestMapping("/foreground")
 public class IndexController {
 	
 	@Autowired
-	private CommonFunctions commonFunctions;
+	private ArticleService articleServiceImpl;
 	
 	@RequestMapping("/index")
-	public String addGif() throws Exception {
-		return "foreground/index";
+	public ModelAndView addGif() throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/index");
+		List<Article> articles = articleServiceImpl.selectForIndex();
+		mv.addObject("articles",articles);
+		return mv;
 
 	}
 	

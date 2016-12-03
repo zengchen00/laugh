@@ -28,6 +28,9 @@ body{
 	cursor: pointer;
 	color: black;
 }
+.imgbg{
+	background: url(../images/z1.jpg) repeat-x;
+}
 /*-----------------Ê×Ò³------------------------------*/
 
 .pgc {width:70%;margin:0 auto;}

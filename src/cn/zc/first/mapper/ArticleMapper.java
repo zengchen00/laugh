@@ -12,4 +12,6 @@ public interface ArticleMapper {
     List<Article> selectArticleByStatus(int status);
     
     void updateArticleById(ArticleVo avo);
+    
+    List<Article> selectForIndex();
 }

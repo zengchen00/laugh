@@ -29,4 +29,9 @@ public class ArticleServiceImpl implements ArticleService {
 		articleMapper.updateArticleById(avo);
 	}
 
+	@Override
+	public List<Article> selectForIndex() {
+		return articleMapper.selectForIndex();
+	}
+
 }
