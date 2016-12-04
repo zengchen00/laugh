@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/zlight.menu.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.zlight.menu.1.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/respond.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body class="body">
@@ -26,63 +27,122 @@
 				<div class="col-md-1 col-sm-0 col-xs-0">
 				</div>
 				<div class="col-md-8 col-sm-12 col-xs-12">
-		<div class="cf_l">
-                <div class="listbox">
-                        <dl>
-                <dt>
-                    <a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110764.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110764.html%27" tppabs="http://www.yxbao.com/xw/110764.html" target="_blank">游戏堡搞笑gif第71期 谁想学摄影？</a>
-                                    </dt>
-                <dd>
-                    <a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110764.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110764.html%27" tppabs="http://www.yxbao.com/xw/110764.html" target="_blank"><img src="d0b69b9509.gif" tppabs="http://img.yxbao.com/cover/201611/29/d0b69b9509.gif" width="165" height="110" alt="游戏堡搞笑gif第71期 谁想学摄影？"></a>
-                    <p class="text">游戏堡搞笑gif第71期，谁想学摄影？欢乐不止，高能不断，本期搞笑gif将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110764.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110764.html%27" tppabs="http://www.yxbao.com/xw/110764.html" target="_blank">[详细]</a></p>
-                    <p>
-                        2016年11月29日 15:25                        &nbsp;&nbsp;&nbsp;&nbsp;阅读(8951)
-                        &nbsp;&nbsp;&nbsp;&nbsp;来源：游戏堡
-                        &nbsp;&nbsp;&nbsp;&nbsp;编辑：小言                        <a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110764.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110764.html%27" tppabs="http://www.yxbao.com/xw/110764.html" target="_blank" class="quanwen">阅读全文</a>
-                    </p>
-                </dd>
-            </dl>
-                        <dl>
-                <dt>
-                    <a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110249.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110249.html%27" tppabs="http://www.yxbao.com/xw/110249.html" target="_blank">游戏堡搞笑gif第70期 洗完澡摸香香</a>
-                                    </dt>
-                <dd>
-                    <a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110249.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110249.html%27" tppabs="http://www.yxbao.com/xw/110249.html" target="_blank"><img src="4119f8e06d.gif" tppabs="http://img.yxbao.com/cover/201611/23/4119f8e06d.gif" width="165" height="110" alt="游戏堡搞笑gif第70期 洗完澡摸香香"></a>
-                    <p class="text">游戏堡搞笑gif第70期，洗完澡摸香香。欢乐不止，高能不断，本期搞笑gif将为大家带来更多更好玩的动态图，各位小伙伴，请<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110249.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110249.html%27" tppabs="http://www.yxbao.com/xw/110249.html" target="_blank">[详细]</a></p>
-                    <p>
-                        2016年11月23日 15:05                        &nbsp;&nbsp;&nbsp;&nbsp;阅读(13012)
-                        &nbsp;&nbsp;&nbsp;&nbsp;来源：游戏堡
-                        &nbsp;&nbsp;&nbsp;&nbsp;编辑：小言                        <a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110249.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110249.html%27" tppabs="http://www.yxbao.com/xw/110249.html" target="_blank" class="quanwen">阅读全文</a>
-                    </p>
-                </dd>
-            </dl>
-                        <dl>
-                <dt>
-                    <a href="javascript:if(confirm(%27http://www.yxbao.com/xw/103878.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/103878.html%27" tppabs="http://www.yxbao.com/xw/103878.html" target="_blank">游戏堡搞笑gif第62期 这样抖腿很健身啊</a>
-                                    </dt>
-                <dd>
-                    <a href="javascript:if(confirm(%27http://www.yxbao.com/xw/103878.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/103878.html%27" tppabs="http://www.yxbao.com/xw/103878.html" target="_blank"><img src="4ac74e1a80.gif" tppabs="http://img.yxbao.com/cover/201608/18/4ac74e1a80.gif" width="165" height="110" alt="游戏堡搞笑gif第62期 这样抖腿很健身啊"></a>
-                    <p class="text">游戏堡搞笑gif第62期，这样抖腿很健身啊。欢乐不止，高能不断，本期搞笑gif将为大家带来更多更好玩的动态图，各位小伙伴<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/103878.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/103878.html%27" tppabs="http://www.yxbao.com/xw/103878.html" target="_blank">[详细]</a></p>
-                    <p>
-                        2016年08月18日 16:42                        &nbsp;&nbsp;&nbsp;&nbsp;阅读(115814)
-                        &nbsp;&nbsp;&nbsp;&nbsp;来源：游戏堡
-                        &nbsp;&nbsp;&nbsp;&nbsp;编辑：小言                        <a href="javascript:if(confirm(%27http://www.yxbao.com/xw/103878.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/103878.html%27" tppabs="http://www.yxbao.com/xw/103878.html" target="_blank" class="quanwen">阅读全文</a>
-                    </p>
-                </dd>
-            </dl>
-        <form name="pageForm" action="javascript:void(0);" method="POST"><div class="page"><a href="javascript:void(0);" onclick="getAjax(this)" class="on">1</a><a href="javascript:void(0);" onclick="getAjax(this)">2</a><a href="javascript:void(0);" onclick="getAjax(this)">3</a><a href="javascript:void(0);" onclick="getAjax(this)">4</a><a href="javascript:void(0);" onclick="getAjax(this)">5</a><a href="javascript:void(0);" onclick="getAjax(this)">6</a><a href="javascript:void(0);" onclick="getAjax(this)">7</a><a href="javascript:void(0);" onclick="getAjax(this)">8</a><a href="javascript:void(0);" onclick="getAjax(this)" class="end">...13</a><a href="javascript:void(0);" onclick="getAjax(this)" class="next" title="下一页">下一页</a></form></div>        </div>
-        <div id="SOHUCS" ></div>
-<script charset="utf-8" type="text/javascript" src="changyan.js" tppabs="http://changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: 'cyr2SwCW6',
-        conf: 'prod_bcd0049c35799cdf57d06eaf2eb3cff6'
-    });
-</script>        
- 
+				<div class="cf_l">
+                <div class="listbox" id="listbox">
+                <!-- 单位开始 -->
+                <c:forEach var="item" items="${articles}" varStatus="status">
+                   <dl>
+                	<dt>
+                   	 <a href="" target="_blank">搞笑gif第${item.indexNum}期 ${item.description}</a>
+                    </dt>
+                	<dd class="gallery">
+                		<div>
+	                    <a href="" target="_blank">
+	                    	<img src="http://localhost:8090/${item.imgUrl}"  width="165" height="110" alt="搞笑gif第${item.indexNum}期 ${item.description}">
+	                    </a>
+	                    </div>
+	                    <p class="text">搞笑gif第${item.indexNum}期 ${item.description} 欢乐不止，高能不断，本期搞笑gif将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="" target="_blank">[详细]</a></p>
+	                    <p>
+	                                                                  阅读(${item.open})
+	                        &nbsp;&nbsp;&nbsp;&nbsp;来源：播欢乐
+	                        &nbsp;&nbsp;&nbsp;&nbsp;编辑：${item.userName}
+	                    </p>
+                	</dd>
+            	   </dl>
+            	   </c:forEach>
+            	   <!-- 单位完结 -->
+        <div class="page" id="pageDiv">
+        </div>
+        <input type="hidden" id="shit" value="${page.pageListStr}"/>
+        </div>
     </div>
-				</div>
-				<div class="col-md-3 col-sm-12 col-xs-12">
+	</div>
+<script type="text/javascript">
+
+var pageNation = function(page,htmlStr){
+	htmlStr = htmlStr + ' <div class="page" id="pageDiv">';
+	if(page.hasPrePage){
+		htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+page.prePage+')">上一页</a>'
+	}
+	var ab = page.pageListStr;
+	var c = ab.split(",");
+	for(var i = 0;i< c.length;i++){
+		var a =c[i];
+		if(a == page.currPage){
+			htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+a+')" class="on">'+a+'</a>';
+		}else{
+			htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+a+')">'+a+'</a>';
+		}
+	}
+	if(page.hasNextPage){
+		htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+page.nextPage+')">下一页</a>';
+	}
+	htmlStr = htmlStr + '</div>';
+	$("#listbox").html(htmlStr);
+}
+
+function getAjax(pageNum){
+	console.log("go to " + pageNum);
+	var url = "${pageContext.request.contextPath}/foreground/queryCurrPage.html";
+	var data = new jsonData();
+	data.put("cp",pageNum);
+	var dataJson = data.toJson();
+	myAjax(url,dataJson,function(data){
+		var articles = data.articles;
+		var innerHtml = "";
+		for (var i = 0; i < articles.length; i++) {
+			var item = articles[i];
+			innerHtml = innerHtml + '<dl><dt>';
+			innerHtml = innerHtml + '<a href="" target="_blank">搞笑gif第'+item.indexNum+'期 '+item.description+'</a>';
+			innerHtml = innerHtml + '</dt><dd class="gallery"><div> <a href="" target="_blank">';
+			innerHtml = innerHtml + '<img src="http://localhost:8090/'+item.imgUrl+'"  width="165" height="110" alt="搞笑gif第'+item.indexNum+'期 '+item.description+'">';
+			innerHtml = innerHtml + '</a></div><p class="text">搞笑gif第'+item.indexNum+'期 '+item.description+' 欢乐不止，高能不断，本期搞笑gif将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="" target="_blank">[详细]</a></p>';
+			innerHtml = innerHtml + '<p>阅读('+item.open+')';
+			innerHtml = innerHtml + '&nbsp;&nbsp;&nbsp;&nbsp;来源：播欢乐';
+			innerHtml = innerHtml + '&nbsp;&nbsp;&nbsp;&nbsp;编辑：'+item.userName;
+			innerHtml = innerHtml + '</p></dd></dl>';
+		}
+		pageNation(data.page,innerHtml);
+	},function(){},function(){},true);
+}
+
+
+	var pageDiv = $("#pageDiv");
+	var htmlStr = "";
+	if(${page.hasPrePage}){
+		htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+${page.prePage}+')">上一页</a>'
+	}
+	var ab = $("#shit").val();
+	var c = ab.split(",");
+	for(var i = 0;i< c.length;i++){
+		var a =c[i];
+		if(a == ${page.currPage}){
+			htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+a+')" class="on">'+a+'</a>';
+		}else{
+			htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+a+')">'+a+'</a>';
+		}
+	}
+	if(${page.hasNextPage}){
+		htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+${page.nextPage}+')">下一页</a>';
+	}
+	pageDiv.html(htmlStr);
+</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			<div class="col-md-3 col-sm-12 col-xs-12">
 			<div class="cfbox mtop13">
             <a class="tit">搞笑GIF最热资讯</a>
             <ul>

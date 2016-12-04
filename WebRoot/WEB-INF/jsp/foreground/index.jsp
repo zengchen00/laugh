@@ -19,41 +19,7 @@
 </head>
 <body class="body">
 <div class="container" id="main">
-		<div class="row">
-			<div class="col-lg-12">
-				<img alt="" src="${pageContext.request.contextPath}/images/logo_back.png">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-lg-12">
-				<nav class="navbar navbar-default" role="navigation">
-					  <div class="container-fluid">
-					    <div class="navbar-header">
-					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					        <span class="sr-only">Toggle navigation</span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					      </button>
-					      <a style="margin-left: 0.3rem;" class="navbar-brand" href="#">首页</a>
-					    </div>
-					
-					    <div class="collapse navbar-collapse" style="background-color: #2FAF4A;border: solid 1px #238A25;border-radius:10px;" id="bs-example-navbar-collapse-1">
-					      <ul class="nav navbar-nav">
-					      	
-					        <li class="navli"><a style="margin-left: 5px;" class="navbar-brand" href="#">搞笑动态图</a></li>
-					        <li class="navli"><a style="margin-left: 5px;" class="navbar-brand" href="#">笑话</a></li>
-					      </ul>
-					      
-					      <ul class="nav navbar-nav navbar-right">
-					        <li><a class="navbar-brand" href="#">关于我们</a></li>
-					      </ul>
-					    </div>
-					  </div>
-				</nav>
-			</div>
-		</div>
+		<jsp:include page="head.jsp"/>
 		<!-- 第二段开始 -->
 		<div class="row">
 			<div class="row clearfix">
@@ -63,13 +29,13 @@
 						<div style="margin-top: 1rem;border: 1px solid rgba(63, 117, 11, 0.16);">
 								<div class="mk fs20" style="color: #408b09;">
 									<strong>最新gif图集</strong>
-									<span style="float: right;"><a class="ia" style="color: #408b09;"><strong>更多..</strong></a></span>
+									<span style="float: right;"><a href="${pageContext.request.contextPath}/foreground/gif.html" class="ia" style="color: #408b09;" target="_blank"><strong>更多..</strong></a></span>
 								</div>
 								<table style="width:100%;text-align: center;">
 									<tr>
 									<c:forEach var="item" items="${articles}" varStatus="status">
 										<td style="margin-right: 5px;width: 30%;">
-											<div style="padding: 4px;margin: 4px;color: #408b09;" class="imgbg gallery">
+											<div style="padding: 4px;margin: 4px;color: #408b09;" class="imgbg gallery" onclick="gotoGifPage(${item.id})">
 												<h5><strong>${item.description}</strong></h5>
 												<div>
 												<img alt="${item.description}" style="width: 100%;min-height: 60%;" src="http://localhost:8090/${item.imgUrl}" class="img-thumbnail">

@@ -16,7 +16,7 @@ var data=function (){
 var REQUEST_TYPE = "POST";
 var CONTENT_TYPE = "application/json";
 var POST_TIMEOUT = 30000;
-//奇象普通get提交表单;
+//普通post提交表单;
 function ajaxFormSubmitPost(url, form, sucCallBack, errCallBack) {
 	$.ajax({
 		type : "POST",

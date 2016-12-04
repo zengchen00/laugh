@@ -87,6 +87,7 @@ var myAjax=function(url,dataJson,succCallBack,errorCallBack,preCallBack,bizError
 		timeout:30000,  
 		data :dataJson,
 		async: isAsync,
+		dataType : 'json',
 		xhrFields: {
             withCredentials: true
 		},

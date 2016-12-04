@@ -16,4 +16,5 @@
 <bean id="articleService" class="cn.zc.first.service.impl.ArticleServiceImpl"/>
 <bean id="articleDetailService" class="cn.zc.first.service.impl.ArticleDetailServiceImpl"/>
 <bean id="commonFunctions" class="cn.zc.first.common.CommonFunctions"/>
+<bean id="page" class="cn.zc.first.common.Page"/>
 </beans>

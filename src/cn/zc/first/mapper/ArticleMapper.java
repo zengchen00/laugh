@@ -16,4 +16,8 @@ public interface ArticleMapper {
     List<Article> selectForIndex();
     
     Integer selectMaxIndex();
+    
+    int selectTotal(int state);
+    
+    List<Article> selectCurrPage(ArticleVo avo);
 }

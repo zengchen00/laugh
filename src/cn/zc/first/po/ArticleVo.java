@@ -21,6 +21,8 @@ public class ArticleVo implements Serializable {
 	private int state;
 	private String userName;
 	private Date modifyDate;
+	private int fromLimit;
+	private int endLimit;
 	
 	public int getId() {
 		return id;
@@ -49,5 +51,21 @@ public class ArticleVo implements Serializable {
 
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
+	}
+
+	public int getFromLimit() {
+		return fromLimit;
+	}
+
+	public void setFromLimit(int fromLimit) {
+		this.fromLimit = fromLimit;
+	}
+
+	public int getEndLimit() {
+		return endLimit;
+	}
+
+	public void setEndLimit(int endLimit) {
+		this.endLimit = endLimit;
 	}
 }

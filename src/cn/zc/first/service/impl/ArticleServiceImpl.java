@@ -44,4 +44,14 @@ public class ArticleServiceImpl implements ArticleService {
 		return indexNum;
 	}
 
+	@Override
+	public int selectTotal(int state) {
+		return articleMapper.selectTotal(state);
+	}
+
+	@Override
+	public List<Article> selectCurrPage(ArticleVo avo) {
+		return articleMapper.selectCurrPage(avo);
+	}
+
 }
