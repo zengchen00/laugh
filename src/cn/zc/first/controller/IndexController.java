@@ -22,6 +22,7 @@ public class IndexController {
 		ModelAndView mv = new ModelAndView("foreground/index");
 		List<Article> articles = articleServiceImpl.selectForIndex();
 		mv.addObject("articles",articles);
+		mv.addObject("cur","1");
 		return mv;
 
 	}

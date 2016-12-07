@@ -6,10 +6,11 @@ body{
 .body{
 	background:url(../images/bg.jpg) repeat-x;
 }
-.navli{
-	border-left:solid 1px #238A25;
+.dhr{
+	background-color: #C7BC44;
+	height:5px;
+	margin-top: 0px;
 }
-
 .gallery > div:hover {
   transform: scale(1.2, 1.2);
   transition: .3s transform;

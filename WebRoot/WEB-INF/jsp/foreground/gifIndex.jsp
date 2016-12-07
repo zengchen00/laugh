@@ -58,7 +58,6 @@
     </div>
 	</div>
 <script type="text/javascript">
-
 var pageNation = function(page,htmlStr){
 	htmlStr = htmlStr + ' <div class="page" id="pageDiv">';
 	if(page.hasPrePage){
@@ -106,7 +105,6 @@ function getAjax(pageNum){
 	},function(){},function(){},true);
 }
 
-
 	var pageDiv = $("#pageDiv");
 	var htmlStr = "";
 	if(${page.hasPrePage}){
@@ -127,50 +125,35 @@ function getAjax(pageNum){
 	}
 	pageDiv.html(htmlStr);
 </script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-			<div class="col-md-3 col-sm-12 col-xs-12">
-			<div class="cfbox mtop13">
-            <a class="tit">搞笑GIF最热资讯</a>
-            <ul>
-                                <li><span>[2016-11-29]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110764.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110764.html%27" tppabs="http://www.yxbao.com/xw/110764.html" target="_blank">游戏堡搞笑gif第71期 谁想学摄影？</a></li>
-                                <li><span>[2016-11-23]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/110249.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/110249.html%27" tppabs="http://www.yxbao.com/xw/110249.html" target="_blank">游戏堡搞笑gif第70期 洗完澡摸香香</a></li>
-                                <li><span>[2016-11-16]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/109670.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/109670.html%27" tppabs="http://www.yxbao.com/xw/109670.html" target="_blank">游戏堡搞笑gif第69期 如何分辨妹纸的真假胸</a></li>
-                                <li><span>[2016-10-13]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/107006.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/107006.html%27" tppabs="http://www.yxbao.com/xw/107006.html" target="_blank">游戏堡搞笑gif第66期 大胸妹子穿衣的烦恼</a></li>
-                                <li><span>[2016-11-09]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/109030.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/109030.html%27" tppabs="http://www.yxbao.com/xw/109030.html" target="_blank">游戏堡搞笑gif第68期 太太你这样我会分心的！</a></li>
-                                <li><span>[2016-09-27]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/106411.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/106411.html%27" tppabs="http://www.yxbao.com/xw/106411.html" target="_blank">游戏堡搞笑gif第65期 这样摸来摸去很容易出事</a></li>
-                                <li><span>[2015-06-25]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/88665.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/88665.html%27" tppabs="http://www.yxbao.com/xw/88665.html" target="_blank">看完内裤都脱了：盘点日了狗的羞羞福利gif动态图！</a></li>
-                                <li><span>[2016-09-12]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/105497.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/105497.html%27" tppabs="http://www.yxbao.com/xw/105497.html" target="_blank">游戏堡搞笑gif第64期 脱裤子后入来互相伤害</a></li>
-                                <li><span>[2016-10-31]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/108188.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/108188.html%27" tppabs="http://www.yxbao.com/xw/108188.html" target="_blank">游戏堡搞笑gif第67期 我机智地丢了支笔！</a></li>
-                                <li><span>[2016-08-30]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/104577.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/104577.html%27" tppabs="http://www.yxbao.com/xw/104577.html" target="_blank">游戏堡搞笑gif第63期 女性泳装这么设计的意义是什么</a></li>
-                                <li><span>[2016-08-18]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/103878.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/103878.html%27" tppabs="http://www.yxbao.com/xw/103878.html" target="_blank">游戏堡搞笑gif第62期 这样抖腿很健身啊</a></li>
-                                <li><span>[2016-07-22]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/102619.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/102619.html%27" tppabs="http://www.yxbao.com/xw/102619.html" target="_blank">游戏堡搞笑gif第59期 妹子躲在被窝里干嘛</a></li>
-                                <li><span>[2016-08-12]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/103507.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/103507.html%27" tppabs="http://www.yxbao.com/xw/103507.html" target="_blank">游戏堡搞笑gif第61期 这是引力波？！感觉被吸进去了</a></li>
-                                <li><span>[2016-08-05]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/103225.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/103225.html%27" tppabs="http://www.yxbao.com/xw/103225.html" target="_blank">游戏堡搞笑gif第60期 现在的妹子居然中空…​太不自重了</a></li>
-                                <li><span>[2016-06-23]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/100924.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/100924.html%27" tppabs="http://www.yxbao.com/xw/100924.html" target="_blank">游戏堡搞笑gif第55期 没什么意思，我看了四十多次就关了</a></li>
-                                <li><span>[2013-03-05]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/30971.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/30971.html%27" tppabs="http://www.yxbao.com/xw/30971.html" target="_blank">搞笑gif图集第一期 游戏堡让你乐翻天</a></li>
-                                <li><span>[2013-06-24]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/43224.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/43224.html%27" tppabs="http://www.yxbao.com/xw/43224.html" target="_blank">动态巨乳肥臀你受的了吗?美女GIF动图大合集(图)</a></li>
-                                <li><span>[2016-07-14]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/102100.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/102100.html%27" tppabs="http://www.yxbao.com/xw/102100.html" target="_blank">游戏堡搞笑gif第58期 这神遮挡真想一脚踢飞！</a></li>
-                                <li><span>[2016-07-07]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/101727.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/101727.html%27" tppabs="http://www.yxbao.com/xw/101727.html" target="_blank">游戏堡搞笑gif第57期 此乃胸兆也</a></li>
-                                <li><span>[2016-06-16]</span>▪<a href="javascript:if(confirm(%27http://www.yxbao.com/xw/100455.html  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.yxbao.com/xw/100455.html%27" tppabs="http://www.yxbao.com/xw/100455.html" target="_blank">游戏堡搞笑gif第54期 叫兽我也要学画画</a></li>
-                            </ul>
+	<!-- 中间栏结束  -->
+	<div class="col-md-3 col-sm-12 col-xs-12">
+		<div class="cfbox mtop13">
+            <a class="tit">点击排行榜</a>
+            	<ul>
+                   <li><span>[2016-11-29]</span>▪<a href="“ target="_blank">游戏堡搞笑gif第71期 谁想学摄影？</a></li>
+                </ul>
         </div>
-				</div>
-			</div>
 	</div>
+	
+</div>
+</div>
+<div class="row">
+	<div id="footer">
+    <div class="fff">
+        <a href="" class="blank" target="_blank">游戏堡简介</a>
+         <a href="" class="blank" target="_blank">游戏堡简介</a>
+          <a href="" class="blank" target="_blank">游戏堡简介</a>
+           <a href="" class="blank" target="_blank">游戏堡简介</a>
+            <a href="" class="blank" target="_blank">游戏堡简介</a>
+             <a href="" class="blank" target="_blank">游戏堡简介</a>
+    </div>
+    <div class="copy">
+        <p>作品版权归作者所有，如果侵犯了您的版权，请联系我们，本站将在3个工作日内删除。<br>
+        备案信息
+        </p>
+    </div>
+</div>
+</div>
 </div>
 </body>
 </html>

@@ -50,6 +50,7 @@ public class GifController2 {
 		
 		mv.addObject("page",page);
 		mv.addObject("articles",articles);
+		mv.addObject("cur","2");
 		return mv;
 	}
 	
