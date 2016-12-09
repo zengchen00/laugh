@@ -140,7 +140,9 @@
 					</div>
 				</div>
 		<!-- 第三段结束 -->
-		
+		<div class="row">
+			<jsp:include page="foot.jsp"/>
+		</div>
 </div>
 </body>
 </html>

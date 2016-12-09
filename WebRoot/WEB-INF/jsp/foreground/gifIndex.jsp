@@ -9,9 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>快乐站点</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/zcV0.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/waibu.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/zlight.menu.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.zlight.menu.1.0.min.js"></script>
@@ -33,7 +31,7 @@
                 <c:forEach var="item" items="${articles}" varStatus="status">
                    <dl>
                 	<dt>
-                   	 <a href="" target="_blank">搞笑gif第${item.indexNum}期 ${item.description}</a>
+                   	 <a href="" target="_blank">第${item.indexNum}期 ${item.description}</a>
                     </dt>
                 	<dd class="gallery">
                 		<div>
@@ -41,7 +39,7 @@
 	                    	<img src="http://localhost:8090/${item.imgUrl}"  width="165" height="110" alt="搞笑gif第${item.indexNum}期 ${item.description}">
 	                    </a>
 	                    </div>
-	                    <p class="text">搞笑gif第${item.indexNum}期 ${item.description} 欢乐不止，高能不断，本期搞笑gif将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="" target="_blank">[详细]</a></p>
+	                    <p class="text">搞笑GIF第${item.indexNum}期 ${item.description} 欢乐不止，高能不断，本期搞笑GIF将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="" target="_blank">[详细]</a></p>
 	                    <p>
 	                                                                  阅读(${item.open})
 	                        &nbsp;&nbsp;&nbsp;&nbsp;来源：播欢乐
@@ -92,10 +90,10 @@ function getAjax(pageNum){
 		for (var i = 0; i < articles.length; i++) {
 			var item = articles[i];
 			innerHtml = innerHtml + '<dl><dt>';
-			innerHtml = innerHtml + '<a href="" target="_blank">搞笑gif第'+item.indexNum+'期 '+item.description+'</a>';
+			innerHtml = innerHtml + '<a href="" target="_blank">第'+item.indexNum+'期 '+item.description+'</a>';
 			innerHtml = innerHtml + '</dt><dd class="gallery"><div> <a href="" target="_blank">';
 			innerHtml = innerHtml + '<img src="http://localhost:8090/'+item.imgUrl+'"  width="165" height="110" alt="搞笑gif第'+item.indexNum+'期 '+item.description+'">';
-			innerHtml = innerHtml + '</a></div><p class="text">搞笑gif第'+item.indexNum+'期 '+item.description+' 欢乐不止，高能不断，本期搞笑gif将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="" target="_blank">[详细]</a></p>';
+			innerHtml = innerHtml + '</a></div><p class="text">搞笑GIF第'+item.indexNum+'期 '+item.description+' 欢乐不止，高能不断，本期搞笑GIF将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="" target="_blank">[详细]</a></p>';
 			innerHtml = innerHtml + '<p>阅读('+item.open+')';
 			innerHtml = innerHtml + '&nbsp;&nbsp;&nbsp;&nbsp;来源：播欢乐';
 			innerHtml = innerHtml + '&nbsp;&nbsp;&nbsp;&nbsp;编辑：'+item.userName;
@@ -126,34 +124,21 @@ function getAjax(pageNum){
 	pageDiv.html(htmlStr);
 </script>
 	<!-- 中间栏结束  -->
-	<div class="col-md-3 col-sm-12 col-xs-12">
-		<div class="cfbox mtop13">
-            <a class="tit">点击排行榜</a>
+	<div class="col-md-3 col-sm-12 col-xs-12 mt12" >
+		<div class="cfbox">
+            <a class="tit" style='text-decoration:none;'>点击排行榜</a>
             	<ul>
-                   <li><span>[2016-11-29]</span>▪<a href="“ target="_blank">游戏堡搞笑gif第71期 谁想学摄影？</a></li>
+            	<c:forEach var="item" items="${articleRanking}" varStatus="status">
+                   <li><span>[${item.createDateStr}]</span>▪<a href="" target="_blank">第${item.indexNum}期 ${item.description}</a></li>
+                </c:forEach>
                 </ul>
         </div>
 	</div>
-	
 </div>
 </div>
-<div class="row">
-	<div id="footer">
-    <div class="fff">
-        <a href="" class="blank" target="_blank">游戏堡简介</a>
-         <a href="" class="blank" target="_blank">游戏堡简介</a>
-          <a href="" class="blank" target="_blank">游戏堡简介</a>
-           <a href="" class="blank" target="_blank">游戏堡简介</a>
-            <a href="" class="blank" target="_blank">游戏堡简介</a>
-             <a href="" class="blank" target="_blank">游戏堡简介</a>
-    </div>
-    <div class="copy">
-        <p>作品版权归作者所有，如果侵犯了您的版权，请联系我们，本站将在3个工作日内删除。<br>
-        备案信息
-        </p>
-    </div>
-</div>
-</div>
+	<div class="row">
+		<jsp:include page="foot.jsp"/>
+	</div>
 </div>
 </body>
 </html>

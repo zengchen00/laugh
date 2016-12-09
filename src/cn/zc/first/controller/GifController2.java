@@ -1,5 +1,6 @@
 package cn.zc.first.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.zc.first.common.CommonFunctions;
 import cn.zc.first.common.MyConstants;
 import cn.zc.first.common.Page;
 import cn.zc.first.po.Article;
@@ -28,6 +30,9 @@ public class GifController2 {
 	@Autowired
 	private ArticleService articleServiceImpl;
 	
+	@Autowired
+	private CommonFunctions commonFunctions;
+	
 	
 	@Autowired
 	private Page page;
@@ -38,7 +43,6 @@ public class GifController2 {
 		int totalRecord = articleServiceImpl.selectTotal(MyConstants.ARTICLE_STATE_ONLINE);
 		page.setTotalRecord(totalRecord);
 		page.setNumPerPage(MyConstants.GIF_NUM_PER);
-//		page.setTotalRecord(21);
 		page.setCurrPage(1);
 		page.init();
 		
@@ -46,10 +50,26 @@ public class GifController2 {
 		av.setState(MyConstants.ARTICLE_STATE_ONLINE);
 		av.setFromLimit(page.getStartPage());
 		av.setEndLimit(page.getNumPerPage());
+		av.setOrderBy("INDEXNUM");
+		av.setOrderType("desc");
 		List<Article> articles = articleServiceImpl.selectCurrPage(av);
+		
+		av = new ArticleVo();
+		av.setState(MyConstants.ARTICLE_STATE_ONLINE);
+		av.setFromLimit(0);
+		av.setEndLimit(MyConstants.ARTICLE_RINGKING);
+		av.setOrderBy("OPEN");
+		av.setOrderType("desc");
+		List<Article> articleRanking = articleServiceImpl.selectCurrPage(av);
+		List<Article> openRanking = new ArrayList<Article>();
+		for (Article article : articleRanking) {
+			article.setCreateDateStr(commonFunctions.DateToStr(article.getCreateDate(), "yyyy-MM-dd"));
+			openRanking.add(article);
+		}
 		
 		mv.addObject("page",page);
 		mv.addObject("articles",articles);
+		mv.addObject("articleRanking",openRanking);
 		mv.addObject("cur","2");
 		return mv;
 	}
@@ -57,7 +77,7 @@ public class GifController2 {
 	@RequestMapping("/queryCurrPage")
 	@ResponseBody
 	public String queryCurrPage(HttpServletRequest request,@RequestBody Map<String, String> map) throws Exception {
-		Map resultMap = new HashMap<String, Object>();
+		Map<String, Object> resultMap = new HashMap<String, Object>();
 		if(map.containsKey("cp")){
 			int currPageNum=Integer.parseInt(map.get("cp"));
 			int totalRecord = articleServiceImpl.selectTotal(MyConstants.ARTICLE_STATE_ONLINE);
@@ -68,6 +88,8 @@ public class GifController2 {
 			
 			ArticleVo av = new ArticleVo();
 			av.setState(MyConstants.ARTICLE_STATE_ONLINE);
+			av.setOrderBy("INDEXNUM");
+			av.setOrderType("desc");
 			av.setFromLimit(page.getStartPage());
 			av.setEndLimit(page.getNumPerPage());
 			List<Article> articles = articleServiceImpl.selectCurrPage(av);

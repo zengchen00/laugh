@@ -15,6 +15,8 @@ public class Article implements Serializable {
 	private String userName;
 	private Date modifyDate;
 	private Date createDate;
+	private String modifyDateStr;
+	private String createDateStr;
 	private int state;
 	private int open;
 	private int indexNum;
@@ -85,5 +87,17 @@ public class Article implements Serializable {
 	}
 	public void setIndexNum(int indexNum) {
 		this.indexNum = indexNum;
+	}
+	public String getModifyDateStr() {
+		return modifyDateStr;
+	}
+	public void setModifyDateStr(String modifyDateStr) {
+		this.modifyDateStr = modifyDateStr;
+	}
+	public String getCreateDateStr() {
+		return createDateStr;
+	}
+	public void setCreateDateStr(String createDateStr) {
+		this.createDateStr = createDateStr;
 	}
 }

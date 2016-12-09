@@ -61,7 +61,14 @@
 	
 	<!-- 查出当前页的记录 -->
 	<select id="selectCurrPage" resultType="article" parameterType="articleVo">
-		SELECT * FROM f_article where STATE = #{state} ORDER BY INDEXNUM DESC LIMIT #{fromLimit},#{endLimit};
+		SELECT * FROM f_article where STATE = #{state} 
+		<if test="orderBy != null and orderBy !='' ">
+		ORDER BY ${orderBy} 
+		</if>
+		<if test="orderType != null and orderType !='' ">
+		${orderType} 
+		</if>
+		  LIMIT #{fromLimit},#{endLimit};
 	</select>
 	
 </mapper>

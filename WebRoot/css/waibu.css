@@ -17,12 +17,5 @@
 .cfbox ul li span{ float:right; padding-left:5px;}
 .cfbox ul li a{ padding-left:5px;}
 
-#footer{line-height: 21px;width: 1028px;margin: 0 auto;}
-#footer p.tips{color: #999999;padding-top: 10px;padding-bottom: 20px;font-size:12px;}
-.fff{text-align: center;height: 40px;line-height: 40px;border: 1px #e5e5e5 solid;background-color:#FFF;color: #ccc;margin-top: 15px;}
-.fff a{padding: 0 20px;color: #333}
-.copy{padding-top: 15px; text-align: center;font-size: 12px;}
 
-.page {clear: both;font-size: 14px;height: 40px;line-height: 40px;margin-right: 15px;padding-bottom: 20px;padding-top: 10px;text-align: center;}
-.page a {border: 1px solid #e3e3e3;color: #666666;display: inline-block;height: 25px;line-height: 25px;margin-right: 10px;padding: 0 10px;}
-.page .on, .page a:hover {background-color: #ff9400;border: 1px  solid  #ff9400;color: #FFFFFF;}
+

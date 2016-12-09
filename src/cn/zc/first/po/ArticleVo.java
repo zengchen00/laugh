@@ -23,6 +23,8 @@ public class ArticleVo implements Serializable {
 	private Date modifyDate;
 	private int fromLimit;
 	private int endLimit;
+	private String orderBy;
+	private String orderType;
 	
 	public int getId() {
 		return id;
@@ -67,5 +69,21 @@ public class ArticleVo implements Serializable {
 
 	public void setEndLimit(int endLimit) {
 		this.endLimit = endLimit;
+	}
+
+	public String getOrderBy() {
+		return orderBy;
+	}
+
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
+
+	public String getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
 	}
 }

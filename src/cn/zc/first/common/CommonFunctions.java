@@ -11,4 +11,10 @@ public class CommonFunctions {
 		Long time = date.getTime();
 		return sBuffer.append(dateFormat.format(date)).append(time).toString();
 	}
+	
+	public String DateToStr(Date date,String str) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(str);
+		return dateFormat.format(date);
+	}
+	
 }

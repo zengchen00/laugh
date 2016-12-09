@@ -32,7 +32,37 @@ body{
 .imgbg{
 	background: url(../images/z1.jpg) repeat-x;
 }
-/*-----------------Ê×Ò³------------------------------*/
+/*-----------------Ò³½Å------------------------------*/
+#footer{line-height: 21px;width: 1028px;margin: 0 auto;}
+#footer p.tips{color: #999999;padding-top: 10px;padding-bottom: 20px;font-size:12px;}
+.fff{text-align: center;height: 40px;line-height: 40px;border: 1px #e5e5e5 solid;background-color:#FFF;color: #ccc;margin-top: 15px;}
+.fff a{padding: 0 20px;color: #333}
+.copy{padding-top: 15px; text-align: center;font-size: 12px;}
+
+/*-----------------·ÖÒ³------------------------------*/
+.page {clear: both;font-size: 14px;height: 40px;line-height: 40px;margin-right: 15px;padding-bottom: 20px;padding-top: 10px;text-align: center;}
+.page a {border: 1px solid #e3e3e3;color: #666666;display: inline-block;height: 25px;line-height: 25px;margin-right: 10px;padding: 0 10px;}
+.page .on, .page a:hover {background-color: #ff9400;border: 1px  solid  #ff9400;color: #FFFFFF;}
+
+/*-----------------gif------------------------------*/
+.listbox{padding:0 22px; border:1px solid #dedede; background:#fff; margin-top:12px;}
+.listbox dl{ padding-bottom:18px;border-bottom:1px solid #dedede; clear:both;zoom:1; overflow:hidden; position:relative;}
+.listbox dt{ font-size:18px;font-family:"Î¢ÈíÑÅºÚ"; height:51px; line-height:51px;_height:52px; _line-height:52px; overflow:hidden;}
+.listbox dd img{ width:165px; height:110px; display:block; float:left; display:inline; margin-right:12px;}
+.listbox dd p{ line-height:22px;}
+.listbox dd p.text{ height:70px; overflow:hidden; margin-bottom:15px;}
+.listbox dd p.text a{ color:#ff9000;}
+.listbox dd a.quanwen{ display: block; width:80px; height:26px; text-align:center; line-height:26px; background:#ddd; color:#666; position:absolute; bottom:20px; right:0;}
+.listbox dl.hover dt a{ color:#ff9000;}
+.listbox dl.hover dd a.quanwen{ background:#ff9000;color:#fff;}
+.listbox dl:last-child{border-bottom:none;}
+
+.cfbox{border:1px solid #dedede; background:#fff;}
+.cfbox a.tit{ display: block; height:38px; line-height:38px; font-size:16px;font-family:"Î¢ÈíÑÅºÚ"; color:#2b2b2b; border:1px solid #fff; text-indent:2em; background:#e9e9e9;}
+.cfbox ul{ padding:5px 10px 11px;border-top:1px solid #dedede;}
+.cfbox ul li{height:28px; line-height:28px;border-bottom:1px dashed #dedede; overflow:hidden;}
+.cfbox ul li span{ float:right; padding-left:5px;}
+.cfbox ul li a{ padding-left:5px;}
 
 .pgc {width:70%;margin:0 auto;}
 
