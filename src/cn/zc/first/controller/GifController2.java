@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.lang.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,7 +33,6 @@ public class GifController2 {
 	
 	@Autowired
 	private CommonFunctions commonFunctions;
-	
 	
 	@Autowired
 	private Page page;
@@ -101,4 +101,37 @@ public class GifController2 {
 		return  null;
 	}
 	
+	@RequestMapping("/gifDetail")
+	public ModelAndView gifDetail(HttpServletRequest request,
+			String id) throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/gifDetail");
+		if(id == null || !NumberUtils.isNumber(id)){
+			mv.setViewName("redirect:/foreground/gif");
+			return mv;
+		}
+		
+		Article article = articleServiceImpl.selectArticleById(Integer.valueOf(id));
+		if(article == null){
+			mv.setViewName("redirect:/foreground/gif");
+			return mv;
+		}
+		
+		ArticleVo av = new ArticleVo();
+		av = new ArticleVo();
+		av.setState(MyConstants.ARTICLE_STATE_ONLINE);
+		av.setFromLimit(0);
+		av.setEndLimit(MyConstants.ARTICLE_RINGKING);
+		av.setOrderBy("OPEN");
+		av.setOrderType("desc");
+		List<Article> articleRanking = articleServiceImpl.selectCurrPage(av);
+		List<Article> openRanking = new ArrayList<Article>();
+		for (Article article1 : articleRanking) {
+			article1.setCreateDateStr(commonFunctions.DateToStr(article1.getCreateDate(), "yyyy-MM-dd"));
+			openRanking.add(article1);
+		}
+		mv.addObject("articleRanking",openRanking);
+		mv.addObject("cur","2");
+		mv.addObject("article",article);
+		return mv;
+	}
 }

@@ -105,7 +105,7 @@ var myAjax=function(url,dataJson,succCallBack,errorCallBack,preCallBack,bizError
 		error:function(XMLHttpRequest){
 			
 			if(XMLHttpRequest.readyState == 4){
-				alert("网络错误，请稍后再试!");
+				succCallBack(data);
 			}
 			if (!isEmpty(errorCallBack)){
 				errorCallBack();

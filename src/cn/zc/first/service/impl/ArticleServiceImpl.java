@@ -54,4 +54,9 @@ public class ArticleServiceImpl implements ArticleService {
 		return articleMapper.selectCurrPage(avo);
 	}
 
+	@Override
+	public Article selectArticleById(int id) {
+		return articleMapper.selectArticleById(id);
+	}
+
 }

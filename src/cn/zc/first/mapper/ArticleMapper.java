@@ -20,4 +20,6 @@ public interface ArticleMapper {
     int selectTotal(int state);
     
     List<Article> selectCurrPage(ArticleVo avo);
+    
+    Article selectArticleById(int id);
 }

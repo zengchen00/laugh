@@ -13,4 +13,5 @@ public interface ArticleService {
 	public int selectMaxIndex();
 	public int selectTotal(int state);
 	public List<Article> selectCurrPage(ArticleVo avo);
+	public Article selectArticleById(int id);
 }

@@ -132,12 +132,12 @@ function onlineTip(articleId){
 		data.put("articleId",articleId);
 		var dataJson = data.toJson();
 		myAjax(url,dataJson,function(data){
-			if(data=="0000"){
+// 			if(data=="0000"){
 				window.location = "${pageContext.request.contextPath}/background/readyGif.html";
-			}else{
-				$("#confirmDiv").hide();
-				alert("上线出错，请联系曾总");
-			}
+// 			}else{
+// 				$("#confirmDiv").hide();
+// 				alert("上线出错，请联系曾总");
+// 			}
 		},function(){},function(){},true);
 	});
 }

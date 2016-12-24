@@ -57,6 +57,56 @@ body{
 .listbox dl.hover dd a.quanwen{ background:#ff9000;color:#fff;}
 .listbox dl:last-child{border-bottom:none;}
 
+/* .list li { */
+/* 	width:50%;float:left;list-style:none; */
+/* } */
+
+ul,li {list-style:none; } 
+	.mala-news{
+			background:#A7D384;
+			width: 330px;
+			overflow: hidden;
+/* 			padding: 7px 0 7px 15px; */
+			margin-top:10px;
+		}
+		.mala-news li{
+			width: 130px;
+			height: 140px;
+			overflow: hidden; 
+			float: left;
+			margin: 5px 12px 0 0;
+		}		
+			.mala-news .img-item{
+				display: block;
+				width: 130px;
+				height: 90px;
+				overflow: hidden;
+				background-color: #eee;
+			}
+				.mala-news img{
+					display: block;
+					width: 130px;
+					overflow: hidden;
+				}	
+				.mala-news a:hover img{
+					filter:alpha(opacity=90);  
+					opacity: 0.9; 
+				}
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
 .cfbox{border:1px solid #dedede; background:#fff;}
 .cfbox a.tit{ display: block; height:38px; line-height:38px; font-size:16px;font-family:"Î¢ÈíÑÅºÚ"; color:#2b2b2b; border:1px solid #fff; text-indent:2em; background:#e9e9e9;}
 .cfbox ul{ padding:5px 10px 11px;border-top:1px solid #dedede;}
