@@ -25,6 +25,7 @@ public class ArticleVo implements Serializable {
 	private int endLimit;
 	private String orderBy;
 	private String orderType;
+	private int open;
 	
 	public int getId() {
 		return id;
@@ -86,4 +87,13 @@ public class ArticleVo implements Serializable {
 	public void setOrderType(String orderType) {
 		this.orderType = orderType;
 	}
+
+	public int getOpen() {
+		return open;
+	}
+
+	public void setOpen(int open) {
+		this.open = open;
+	}
+
 }

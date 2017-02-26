@@ -16,57 +16,7 @@
 <div class="container">
 	<jsp:include page="../head.jsp"/>
 	<div class="row" style="margin-top: 4rem;">
-		<div class="col-md-3">
-			<ul class="list-group">
-			  <li class="list-group-item">
-			    <strong>gif管理</strong>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			   <a href="${pageContext.request.contextPath}/background/addGif.html">新增gif文章</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="${pageContext.request.contextPath}/background/readyGif.html">待上线gif文章列表</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="${pageContext.request.contextPath}/background/onlineGif.html">在线gif文章列表</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="${pageContext.request.contextPath}/background/deleteGif.html" style="color:#68228B;">已删除gif文章列表</a>
-			  </li>
-		<!-- *****搞笑图片*****			   -->
-			  <li class="list-group-item">
-			    <strong>搞笑图片管理</strong>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			   <a href="#">新增搞笑图片文章</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="#">待上线搞笑图片文章列表</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="#">在线搞笑图片文章列表</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="#">已删除搞笑图片文章列表</a>
-			  </li>
-	    <!-- *****段子*****			   -->
-			  <li class="list-group-item">
-			    <strong>段子管理</strong>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			   <a href="#">新增段子</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="#">待上线段子文章列表</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="#">在线段子文章列表</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="#">已删除段子文章列表</a>
-			  </li>
-			</ul>
-		</div>
+		<jsp:include page="../left.jsp"/>
 		<div class="col-md-9">
 			<table id="table" class="table table-striped table-condensed">
 			  <tr>

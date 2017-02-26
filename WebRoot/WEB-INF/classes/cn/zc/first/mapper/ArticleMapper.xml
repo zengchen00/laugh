@@ -46,6 +46,12 @@
 	<update id="updateArticleById" parameterType="articleVo">
 		UPDATE f_article SET STATE = #{state},USERNAME=#{userName},MODIFYDATE=#{modifyDate} WHERE ID = #{id};
 	</update>
+	
+	<!-- 更新查看次数 -->
+	<update id="updateArticleOpens" parameterType="articleVo">
+		UPDATE f_article SET OPEN = #{open} WHERE ID = #{id};
+	</update>
+	
 	<!-- 首页展示 -->
 	<select id="selectForIndex" resultType="article">
 		select * from f_article where STATE = '2' ORDER BY INDEXNUM DESC LIMIT 0,3;

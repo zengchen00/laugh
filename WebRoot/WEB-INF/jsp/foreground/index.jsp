@@ -140,7 +140,7 @@
 					</div>
 				</div>
 		<!-- 第三段结束 -->
-		<div class="row">
+		<div class="row" style="margin-top: 100px;">
 			<jsp:include page="foot.jsp"/>
 		</div>
 </div>

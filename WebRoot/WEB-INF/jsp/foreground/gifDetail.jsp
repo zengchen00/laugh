@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,11 +29,11 @@
 					<div class="cf_l">
 	                <div class="eleCenter" id="listbox">
 	                <!-- 单位开始 -->
-	                <c:forEach var="item" items="${article.articleDetails}" varStatus="status">
+	                <c:forEach var="item" items="${articleDetails}" varStatus="status">
 	                <div style="margin-top: 50px;">
 	                <dl>
                 	<dt>
-                   	  ${item.description}
+                   	 ${status.index + 1}. ${item.description}
                     </dt>
                 	<dd style="margin-top: 10px;">
 	                    <img style="max-height: 400px;max-width: 400px;min-height: 250px;min-width: 300px;" src="http://localhost:8090/${item.img_url}">
@@ -42,8 +43,40 @@
             	   </div>
 	            	  </c:forEach>
 	            	   <!-- 单位完结 -->
+	            	   
 	       			 </div>
-	   		 		</div>
+	   		 	</div>
+	   		 	<div class="page" id="pageDiv" ajaxUrl="${pageContext.request.contextPath}/foreground/queryDetailPage.html">
+				</div>
+				<input type="hidden" id="shit" value="${page.pageListStr}"/>
+				
+				<div class="data_list comment_list">
+					<div class="dataHeader">用户评论</div>
+					<div class="commentDatas" id="comentList">
+						<c:forEach var="comment" items="${commentList }">
+							<div class="comment">
+								<font>${comment.guestIp }：</font>${comment.userComment }&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${comment.createDate}" type="BOTH" pattern="yyyy-MM-dd HH:mm:ss" />&nbsp;
+							</div>
+						</c:forEach>
+					</div>
+				<div class="page" id="commentPageDiv" ajaxUrl="${pageContext.request.contextPath}/foreground/queryCommentPage.html">
+				</div>
+				<input type="hidden" id="commentPageList" value="${commentPage.pageListStr}"/>
+				</div>
+				<div class="publish_list">
+					<div class="publishBody">
+						<form id="commentForm" actionUrl="${pageContext.request.contextPath}/foreground/commentSave.html" method="post">
+							<input type="hidden" name="articleId" id="articleId" value="${articleId}"/>
+							<div>
+								<input type="hidden" value="${news.newsId }" name="newsId" id="newsId"/>
+								<textarea style="width: 100%;" rows="3" name="content" id="content"></textarea>
+							</div>
+							<div class="publishButton">
+								<button class="btn btn-primary" type="" id="saveComment">发表评论</button>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 
 	<!-- 中间栏结束  -->
@@ -84,15 +117,59 @@
 				    </ul>
 				 </div>
 		</div>
+	</div>
 </div>
-</div>
 
 
 
 
-	<div class="row">
+	<div class="row" style="margin-top: 100px;">
 		<jsp:include page="foot.jsp"/>
 	</div>
 </div>
+
+<script src="${pageContext.request.contextPath}/js/common.js"></script>
+<script src="${pageContext.request.contextPath}/js/foreground/gifDetail.js"></script>
+<script type="text/javascript">
+var pageDiv = $("#pageDiv");
+var htmlStr = "";
+if(${page.hasPrePage}){
+	htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+${page.prePage}+')">上一页</a>'
+}
+var ab = $("#shit").val();
+var c = ab.split(",");
+for(var i = 0;i< c.length;i++){
+	var a =c[i];
+	if(a == ${page.currPage}){
+		htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+a+')" class="on">'+a+'</a>';
+	}else{
+		htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+a+')">'+a+'</a>';
+	}
+}
+if(${page.hasNextPage}){
+	htmlStr = htmlStr + '<a href="javascript:void(0);" onclick="getAjax('+${page.nextPage}+')">下一页</a>';
+}
+pageDiv.html(htmlStr);
+
+var commentPageDiv = $("#commentPageDiv");
+var htmlStr1 = "";
+if(${commentPage.hasPrePage}){
+	htmlStr1 = htmlStr1 + '<a href="javascript:void(0);" onclick="getCommentAjax('+${commentPage.prePage}+')">上一页</a>'
+}
+var ab1 = $("#commentPageList").val();
+var c1 = ab1.split(",");
+for(var i = 0;i< c1.length;i++){
+	var a =c1[i];
+	if(a == ${commentPage.currPage}){
+		htmlStr1 = htmlStr1 + '<a href="javascript:void(0);" onclick="getCommentAjax('+a+')" class="on">'+a+'</a>';
+	}else{
+		htmlStr1 = htmlStr1 + '<a href="javascript:void(0);" onclick="getCommentAjax('+a+')">'+a+'</a>';
+	}
+}
+if(${commentPage.hasNextPage}){
+	htmlStr1 = htmlStr1 + '<a href="javascript:void(0);" onclick="getCommentAjax('+${commentPage.nextPage}+')">下一页</a>';
+}
+commentPageDiv.html(htmlStr1);
+</script>
 </body>
 </html>

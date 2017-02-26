@@ -35,11 +35,11 @@
                     </dt>
                 	<dd class="gallery">
                 		<div>
-	                    <a href="" target="_blank">
+	                    <a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id=${item.id}" >
 	                    	<img src="http://localhost:8090/${item.imgUrl}"  width="165" height="110" alt="搞笑gif第${item.indexNum}期 ${item.description}">
 	                    </a>
 	                    </div>
-	                    <p class="text">搞笑GIF第${item.indexNum}期 ${item.description} 欢乐不止，高能不断，本期搞笑GIF将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="" target="_blank">[详细]</a></p>
+	                    <p class="text">搞笑GIF第${item.indexNum}期 ${item.description} 欢乐不止，高能不断，本期搞笑GIF将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id=${item.id}">[详细]</a></p>
 	                    <p>
 	                                                                  阅读(${item.open})
 	                        &nbsp;&nbsp;&nbsp;&nbsp;来源：播欢乐
@@ -90,9 +90,9 @@ function getAjax(pageNum){
 			var item = articles[i];
 			innerHtml = innerHtml + '<dl><dt>';
 			innerHtml = innerHtml + '<a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id='+item.id+'">第'+item.indexNum+'期 '+item.description+'</a>';
-			innerHtml = innerHtml + '</dt><dd class="gallery"><div> <a href="" target="_blank">';
+			innerHtml = innerHtml + '</dt><dd class="gallery"><div> <a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id='+item.id+'">';
 			innerHtml = innerHtml + '<img src="http://localhost:8090/'+item.imgUrl+'"  width="165" height="110" alt="搞笑gif第'+item.indexNum+'期 '+item.description+'">';
-			innerHtml = innerHtml + '</a></div><p class="text">搞笑GIF第'+item.indexNum+'期 '+item.description+' 欢乐不止，高能不断，本期搞笑GIF将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="" target="_blank">[详细]</a></p>';
+			innerHtml = innerHtml + '</a></div><p class="text">搞笑GIF第'+item.indexNum+'期 '+item.description+' 欢乐不止，高能不断，本期搞笑GIF将为大家带来更多更好玩的动态图，各位小伙伴，请坐<a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id='+item.id+'">[详细]</a></p>';
 			innerHtml = innerHtml + '<p>阅读('+item.open+')';
 			innerHtml = innerHtml + '&nbsp;&nbsp;&nbsp;&nbsp;来源：播欢乐';
 			innerHtml = innerHtml + '&nbsp;&nbsp;&nbsp;&nbsp;编辑：'+item.userName;
@@ -128,14 +128,14 @@ function getAjax(pageNum){
             <a class="tit" style='text-decoration:none;'>点击排行榜</a>
             	<ul>
             	<c:forEach var="item" items="${articleRanking}" varStatus="status">
-                   <li><span>[${item.createDateStr}]</span>▪<a href="" target="_blank">第${item.indexNum}期 ${item.description}</a></li>
+                   <li><span>[${item.open}]</span>▪<a href="" target="_blank">第${item.indexNum}期 ${item.description}</a></li>
                 </c:forEach>
                 </ul>
         </div>
 	</div>
 </div>
 </div>
-	<div class="row">
+	<div class="row" style="margin-top: 100px;">
 		<jsp:include page="foot.jsp"/>
 	</div>
 </div>

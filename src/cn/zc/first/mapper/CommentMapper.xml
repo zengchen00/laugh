@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zc.first.mapper.CommentMapper" >
+ 	<insert id="insert" parameterType="comment">
+ 		insert into f_comment(USERCOMMENT,ARTICLEID,GUESTIP,CREATEDATE) value(#{userComment},#{articleId},#{guestIp},#{createDate})
+ 	</insert>
+ 	
+ 	<select id="selectByArtId" parameterType="String" resultType="comment">
+ 		select * from f_comment where ARTICLEID = #{articleId} order by CREATEDATE desc
+ 	</select>
+ 	
+ 	<!-- 查出当前页的记录 -->
+	<select id="selectCurrPage" resultType="comment" parameterType="CommentVo">
+		SELECT * FROM f_comment where ARTICLEID = #{articleId} order by CREATEDATE desc LIMIT #{page.startPage},#{page.numPerPage};
+	</select>
+	
+	<!-- 查出总数 -->
+	<select id="countNum" resultType="int">
+		SELECT count(*) FROM f_comment where ARTICLEID = #{articleId};
+	</select>
+	
+</mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <a name="header" id="header" ></a>
 		<div class="row">
 			<div class="col-lg-12">
 				<img alt="" src="${pageContext.request.contextPath}/images/logo_back.png">
@@ -46,6 +47,5 @@
 	}else if("4"==cur){
 		$("#aboutA").css("color","#000310");
 	}
-	console.log(cur);
 	</script>
 		

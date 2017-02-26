@@ -26,6 +26,11 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
+	public void updateArticleOpens(ArticleVo avo) {
+		articleMapper.updateArticleOpens(avo);
+	}
+	
+	@Override
 	public void updateById(ArticleVo avo) {
 		articleMapper.updateArticleById(avo);
 	}

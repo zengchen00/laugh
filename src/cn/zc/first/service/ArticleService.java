@@ -9,6 +9,7 @@ public interface ArticleService {
 	public void insert(Article article);
 	public List<Article> selectArticleByStatus(int status);
 	public void updateById(ArticleVo avo);
+	public void updateArticleOpens(ArticleVo avo);
 	public List<Article> selectForIndex();
 	public int selectMaxIndex();
 	public int selectTotal(int state);

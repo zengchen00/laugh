@@ -5,4 +5,13 @@
 		insert into F_ARTICLE_DETAIL(DESCRIPTION,ARTICLE_ID,IMG_URL,CREATE_DATE,MODIFY_DATE)
 		 value(#{description},#{article.id},#{img_url},#{modifyDate},#{createDate})
 	</insert>
+	<!-- 查出当前页的记录 -->
+	<select id="selectCurrPage" resultType="articleDetail" parameterType="articleDetailVo">
+		SELECT * FROM f_article_detail where ARTICLE_ID = #{articleId} LIMIT #{page.startPage},#{page.numPerPage};
+	</select>
+	
+	<!-- 查出图的总数 -->
+	<select id="countNum" resultType="int">
+		SELECT count(*) FROM f_article_detail where ARTICLE_ID = #{articleId};
+	</select>
 </mapper>

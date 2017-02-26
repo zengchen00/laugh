@@ -45,9 +45,10 @@ public class GifController {
 	private CommonFunctions commonFunctions;
 	
 	@RequestMapping("/addGif")
-	public String addGif() throws Exception {
-		return "background/gif/addGif";
-
+	public ModelAndView addGif() throws Exception {
+		ModelAndView mv = new ModelAndView("background/gif/addGif");
+		mv.addObject("cur","1");
+		return mv;
 	}
 	
 	@RequestMapping("/readyGif")
@@ -55,6 +56,7 @@ public class GifController {
 		ModelAndView mv = new ModelAndView("background/gif/readyGif");
 		List<Article> articles = articleServiceImpl.selectArticleByStatus(MyConstants.ARTICLE_STATE_READY);
 		mv.addObject("articles", articles);
+		mv.addObject("cur","2");
 		return mv;
 	}
 	
@@ -63,6 +65,7 @@ public class GifController {
 		ModelAndView mv = new ModelAndView("background/gif/onlineGif");
 		List<Article> articles = articleServiceImpl.selectArticleByStatus(MyConstants.ARTICLE_STATE_ONLINE);
 		mv.addObject("articles", articles);
+		mv.addObject("cur","3");
 		return mv;
 	}
 	
@@ -71,6 +74,7 @@ public class GifController {
 		ModelAndView mv = new ModelAndView("background/gif/deleteGif");
 		List<Article> articles = articleServiceImpl.selectArticleByStatus(MyConstants.ARTICLE_STATE_DELETE);
 		mv.addObject("articles", articles);
+		mv.addObject("cur","4");
 		return mv;
 	}
 	
