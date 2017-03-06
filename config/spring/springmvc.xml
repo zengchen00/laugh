@@ -19,12 +19,16 @@
 	<context:component-scan base-package="cn.zc.first.controller"></context:component-scan>
 	
 	<!-- 静态资源解析
-	包括 ：js、css、img、..
+		包括 ：js、css、img、..
 	 -->
 	 <mvc:resources location="/js/" mapping="/js/**"/>
+	 <mvc:resources location="/umeditor/" mapping="/umeditor/**"/>
+	 <mvc:resources location="/ace/" mapping="/ace/**"/>
 	 <mvc:resources location="/images/" mapping="/images/**"/>
 	 <mvc:resources location="/css/" mapping="/css/**"/>
 	  <mvc:resources location="/fonts/" mapping="/fonts/**"/>
+	  <mvc:resources location="/umeditor.min.js" mapping="/umeditor.min.js"/>
+	   <mvc:resources location="/umeditor.config.js" mapping="/umeditor.config.js"/>
 	
 	<mvc:annotation-driven conversion-service="conversionService"
 	validator="validator"></mvc:annotation-driven>

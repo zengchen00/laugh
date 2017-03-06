@@ -39,16 +39,16 @@
 			    <strong>段子管理</strong>
 			  </li>
 			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			   <a href="#">新增段子</a>
+			   <a id="addJoke" href="${pageContext.request.contextPath}/background/addJoke.html">新增段子</a>
 			  </li>
 			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="#">待上线段子文章列表</a>
+			    <a id="reJoke" href="#">待上线段子文章列表</a>
 			  </li>
 			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="#">在线段子文章列表</a>
+			    <a id="onJoke" href="#">在线段子文章列表</a>
 			  </li>
 			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a href="#">已删除段子文章列表</a>
+			    <a id="delJoke" href="#">已删除段子文章列表</a>
 			  </li>
 			</ul>
 		</div>
@@ -68,6 +68,19 @@ $(function(){
 			break;
 		case "4":
 			$("#delGif").css("color","#68228B");
+			break;
+			
+		case "9":
+			$("#addJoke").css("color","#68228B");
+			break;
+		case "10":
+			$("#reJoke").css("color","#68228B");
+			break;
+		case "11":
+			$("#onJoke").css("color","#68228B");
+			break;
+		case "12":
+			$("#delJoke").css("color","#68228B");
 			break;
 
 		default:

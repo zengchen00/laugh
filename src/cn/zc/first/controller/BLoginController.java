@@ -30,7 +30,7 @@ public class BLoginController {
 	
 	@RequestMapping("/index")
 	public String gotoIndex() throws Exception {
-		return "background/index";
+		return "index";
 
 	}
 	
