@@ -42,7 +42,7 @@
 			   <a id="addJoke" href="${pageContext.request.contextPath}/background/addJoke.html">新增段子</a>
 			  </li>
 			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a id="reJoke" href="#">待上线段子文章列表</a>
+			    <a id="reJoke" href="${pageContext.request.contextPath}/background/readyJoke.html">待上线段子文章列表</a>
 			  </li>
 			  <li class="list-group-item" style="text-indent: 1.5rem;">
 			    <a id="onJoke" href="#">在线段子文章列表</a>

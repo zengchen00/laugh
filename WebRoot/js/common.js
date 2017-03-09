@@ -64,6 +64,11 @@ var isEmpty = function (o) {
 	return false;
 };
 
+/*去掉左右空格*/
+var trim=function(s){ //删除左右两端的空格  
+    return s.replace(/(^\s*)|(\s*$)/g, "");  
+};
+
 function formValidator(formId,submitCallback,showErrorCallback){
 	var valid = $("#" + formId).validate({
 		focusCleanup:true,

@@ -15,6 +15,7 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/ace/assets/css/ace.css">
  <link href="${pageContext.request.contextPath}/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
@@ -30,7 +31,12 @@
 		<div class="row" style="margin-top: 4rem;">
 			<jsp:include page="../left.jsp" />
 			<div class="col-md-9">
-				<div class="widget-box widget-color-green">
+			<fieldset>
+				<label>笑话标题</label>
+				<input type="text" id="jokeTitle" placeholder="笑话标题…">
+			</fieldset>
+			<div class="space-24"></div>
+				<div id="tbody" class="widget-box widget-color-green">
 					<div class="widget-header widget-header-small">
 						<div class="wysiwyg-toolbar btn-toolbar center inline"></div>
 					</div>
@@ -49,7 +55,7 @@
 							</div>
 
 							<div class="btn-group pull-right">
-								<button class="btn btn-sm btn-danger btn-white btn-round">
+								<button id="saveContent" ajaxUrl="${pageContext.request.contextPath}/background/saveJoke.html" class="btn btn-sm btn-danger btn-white btn-round">
 									<i class="ace-icon fa fa-floppy-o bigger-125"></i> 保存
 								</button>
 							</div>
@@ -59,9 +65,7 @@
 			</div>
 		</div>
 	</div>
-
-<script type="text/javascript">
-	var um = UM.getEditor('myEditor');
-</script>
+<script src="${pageContext.request.contextPath}/js/common.js"></script>
+<script src="${pageContext.request.contextPath}/js/background/addJoke.js"></script>
 </body>
 </html>
