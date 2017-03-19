@@ -11,6 +11,10 @@ body {
   color: #393939;
   line-height: 2.5rem;
 }
+
+table{
+	line-height: 4rem;
+}
 .main-container:before {
   display: block;
   content: "";

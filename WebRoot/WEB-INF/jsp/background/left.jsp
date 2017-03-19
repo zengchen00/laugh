@@ -16,6 +16,22 @@
 			  <li class="list-group-item" style="text-indent: 1.5rem;">
 			    <a id="delGif" href="${pageContext.request.contextPath}/background/deleteGif.html">已删除gif文章列表</a>
 			  </li>
+<!-- *****段子*****-->
+			  <li class="list-group-item">
+			    <strong>段子管理</strong>
+			  </li>
+			  <li class="list-group-item" style="text-indent: 1.5rem;">
+			   <a id="addJoke" href="${pageContext.request.contextPath}/background/addJoke.html">新增段子</a>
+			  </li>
+			  <li class="list-group-item" style="text-indent: 1.5rem;">
+			    <a id="reJoke" href="${pageContext.request.contextPath}/background/readyJoke.html">待上线段子文章列表</a>
+			  </li>
+			  <li class="list-group-item" style="text-indent: 1.5rem;">
+			    <a id="onJoke" href="${pageContext.request.contextPath}/background/onJoke.html">在线段子文章列表</a>
+			  </li>
+			  <li class="list-group-item" style="text-indent: 1.5rem;">
+			    <a id="delJoke" href="${pageContext.request.contextPath}/background/deleteJoke.html">已删除段子文章列表</a>
+			  </li>
 			  
 <!-- *****搞笑图片*****-->
 			  <li class="list-group-item">
@@ -32,23 +48,6 @@
 			  </li>
 			  <li class="list-group-item" style="text-indent: 1.5rem;">
 			    <a href="#">已删除搞笑图片文章列表</a>
-			  </li>
-			  
-<!-- *****段子*****-->
-			  <li class="list-group-item">
-			    <strong>段子管理</strong>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			   <a id="addJoke" href="${pageContext.request.contextPath}/background/addJoke.html">新增段子</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a id="reJoke" href="${pageContext.request.contextPath}/background/readyJoke.html">待上线段子文章列表</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a id="onJoke" href="#">在线段子文章列表</a>
-			  </li>
-			  <li class="list-group-item" style="text-indent: 1.5rem;">
-			    <a id="delJoke" href="#">已删除段子文章列表</a>
 			  </li>
 			</ul>
 		</div>

@@ -27,6 +27,8 @@ var fullNumber = function(second){
 		window.setInterval("setDateTime()", 1000);
 </script>
 </head>
+<button style="display:none;" class="btn btn-md" id="alertButton"></button><!-- 提示信息要用到 -->
+<input id="serverPath" ajaxUrl="${pageContext.request.contextPath}" type="hidden">
 	<div class="row">
  		 <div class="col-md-12">
  		 	<img alt="" src="${pageContext.request.contextPath}/images/logo_back.png">

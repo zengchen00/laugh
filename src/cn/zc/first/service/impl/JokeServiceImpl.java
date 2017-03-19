@@ -29,13 +29,20 @@ public class JokeServiceImpl implements JokeService{
 
 
 	@Override
-	public int countNum() {
-		return jokeMapper.countNum();
+	public int countNum(int state) {
+		return jokeMapper.countNum(state);
 	}
 
 
 	@Override
 	public List<Joke> selectCurrPage(JokeVo jokeVo) {
 		return jokeMapper.selectCurrPage(jokeVo);
+	}
+
+
+	@Override
+	public void updateState(JokeVo jokeVo) {
+		jokeMapper.updateJokeById(jokeVo);
+		
 	}
 }

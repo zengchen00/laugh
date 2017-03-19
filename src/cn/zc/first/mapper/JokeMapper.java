@@ -13,5 +13,7 @@ public interface JokeMapper {
     
     List<Joke> selectCurrPage(JokeVo avo);
     
-    int countNum();
+    int countNum(int state);
+    
+    void updateJokeById(JokeVo jokeVo);
 }

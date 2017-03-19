@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.zc.first.mapper.JokeMapper" >
  	<insert id="insert" parameterType="jokeVo">
- 		insert into f_joke(TITLE,CONTENT,STATE,AUTHOR,CREATEDATE,MODIFYDATE) value(#{title},#{content},#{state},#{author},#{createDate},#{modifyDate})
+ 		insert into f_joke(TITLE,CONTENT,STATE,AUTHOR,CREATEDATE,MODIFYDATE,CREATEDATESTR,MODIFYDATESTR) value(#{title},#{content},#{state},#{author},#{createDate},#{modifyDate},#{createDateStr},#{modifyDateStr})
  	</insert>
  	
  	<select id="selectById" parameterType="jokeVo" resultType="joke">
@@ -11,12 +11,23 @@
  	
  	<!-- 查出当前页的记录 -->
 	<select id="selectCurrPage" resultType="joke" parameterType="jokeVo">
-		SELECT * FROM f_joke LIMIT #{page.startPage},#{page.numPerPage};
+		SELECT * FROM f_joke where STATE = #{state} 
+		<if test="orderBy != null and orderBy !='' ">
+		ORDER BY ${orderBy} 
+		</if>
+		<if test="orderType != null and orderType !='' ">
+		${orderType} 
+		</if>
+		LIMIT #{page.startPage},#{page.numPerPage};
 	</select>
 	
 	<!-- 查出总数 -->
-	<select id="countNum" resultType="int">
-		SELECT count(*) FROM f_joke;
+	<select id="countNum" resultType="int" parameterType="int"> 
+		SELECT count(*) FROM f_joke where STATE = #{state};
 	</select>
 	
+	<!-- 更新state状态 -->
+	<update id="updateJokeById" parameterType="jokeVo">
+		UPDATE f_joke SET STATE = #{state},author=#{author},MODIFYDATE=#{modifyDate},MODIFYDATESTR=#{modifyDateStr} WHERE ID = #{id};
+	</update>
 </mapper>

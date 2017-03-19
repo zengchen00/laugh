@@ -14,5 +14,7 @@ public interface JokeService {
 	
 	public List<Joke> selectCurrPage(JokeVo jokeVo);
 	
-	public int countNum();
+	public int countNum(int state);
+	
+	public void updateState(JokeVo jokeVo);
 }
