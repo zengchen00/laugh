@@ -1,5 +1,7 @@
 package cn.zc.first.mapper;
 
+import java.util.List;
+
 import cn.zc.first.po.Joke;
 import cn.zc.first.po.JokeVo;
 
@@ -9,7 +11,7 @@ public interface JokeMapper {
     
     void insert(JokeVo jokeVo);
     
-//    List<Comment> selectCurrPage(CommentVo avo);
+    List<Joke> selectCurrPage(JokeVo avo);
     
-//    int countNum(int articleId);
+    int countNum();
 }

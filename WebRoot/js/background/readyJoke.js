@@ -1,31 +1,45 @@
 $(function(){
-	jQuery("#grid-table").jqGrid(
-			{
+	var buttonStr = '<p style="margin-top: 5px;"><button class="btn btn-white btn-info btn-bold" style="margin-right: 4px;"><i class="ace-icon fa fa-eye bigger-120 blue"></i>预览</button>'; 
+	buttonStr = buttonStr + '<button class="btn btn-white btn-default btn-bold" style="margin-right: 4px;"><i class="ace-icon fa fa-bolt bigger-120 orange"></i>下线</button>';
+	buttonStr = buttonStr + '<button class="btn btn-white btn-warning btn-round"><i class="ace-icon fa fa-trash-o red2"></i>删除</button></p>';							
+											
+										
+	jQuery("#grid-table").jqGrid({
 				url: "getReadyJoke.html",
 				datatype: "json",
 				ajaxGridOptions: {contentType: 'application/json; charset=utf-8'},
-				colNames:['ID','标题','作者'],
+				colNames:['ID','标题','作者','操作'],
 				colModel:[
-				    {name:'id',index:'id', width:'33%', sortable : true,height:'30px'},
-					{name:'title',index:'title', width:'33%', sortable : true,height:'30px'},
-					{name:'author',index:'author', width:'33%', sortable : true,height:'30px'}
+				    {name:'id',index:'id', width:'20%', sortable : true,height:'30px'},
+					{name:'title',index:'title', width:'20%', sortable : true,height:'30px'},
+					{name:'author',index:'author', width:'20%', sortable : true,height:'30px'},
+					{name:'myac',index:'', width:'40%', sortable:false,
+						formatter : function(data,row, rowObject){
+							return buttonStr;
+		            	}
+					}
 				], 
 				rowNum : 10,//一页显示多少条
 				rowList : [ 10, 20, 30 ],//可供用户选择一页显示多少条
 				pager : '#grid-pager',//表格页脚的占位符(一般是div)的id
 				sortname : 'id',//初始化的时候排序的字段
 				sortorder : "desc",//排序方式,可选desc,asc
-				mtype : "post",//向后台请求数据的ajax的类型。可选post,get
+				mtype : "get",//向后台请求数据的ajax的类型。可选post,get
 				viewrecords : true,
+				rownumbers:true,
+				multiselect: true,
+		        multiboxonly: true,
+		        altRows: true,
 //				caption : "JSON Example"//表格的标题名字
 				loadComplete : function(data) {
 					var table = this;
 					updatePagerIcons(table);
 				}
 			});
-	/*创建jqGrid的操作按钮容器*/
-	/*可以控制界面上增删改查的按钮是否显示*/
-	$("#grid-table").parents('div.ui-jqgrid-bdiv').css({'height':10*2.6 +'rem'});
+	
+	
+	
+	$("#grid-table").parents('div.ui-jqgrid-bdiv').css({'height':10*50 +'px'});//分页栏位置
 	jQuery("#grid-table").jqGrid('navGrid', '#pager2', {edit : false,add : false,del : false});
 	jQuery("#grid-table").jqGrid('setGridWidth', $(".pagecontent").width());
 	$("#grid-table,.ui-jqgrid-htable").css("width",$(".pagecontent").width());
@@ -33,6 +47,31 @@ $(function(){
 	
 //	initGridTable();
 })
+
+function beforeDeleteCallback(e) {
+					var form = $(e[0]);
+					if(form.data('styled')) return false;
+					
+					form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+					style_delete_form(form);
+					
+					form.data('styled', true);
+				}
+				
+				function beforeEditCallback(e) {
+					var form = $(e[0]);
+					form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+					style_edit_form(form);
+				}
+				
+var firstList = function () {
+	$('#grid-table').jqGrid('setGridParam', {
+		url: webroot + "getReadyJoke.html",
+		postData : jsonData,
+		page:1,
+		mtype: "get"
+	}).trigger("reloadGrid");
+}
 
 function updatePagerIcons(table) {
 		var replacement = 

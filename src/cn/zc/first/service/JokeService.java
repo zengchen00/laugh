@@ -1,5 +1,7 @@
 package cn.zc.first.service;
 
+import java.util.List;
+
 import cn.zc.first.po.Joke;
 import cn.zc.first.po.JokeVo;
 
@@ -10,7 +12,7 @@ public interface JokeService {
 	public Joke queryJokeById(JokeVo jokeVo);
 	
 	
-//	public List<Comment> selectCurrPage(CommentVo commentVo);
+	public List<Joke> selectCurrPage(JokeVo jokeVo);
 	
-//	public int countNum(int articleId);
+	public int countNum();
 }

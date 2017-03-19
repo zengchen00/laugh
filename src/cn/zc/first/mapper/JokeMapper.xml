@@ -10,13 +10,13 @@
  	</select>
  	
  	<!-- 查出当前页的记录 -->
-<!-- 	<select id="selectCurrPage" resultType="comment" parameterType="CommentVo"> -->
-<!-- 		SELECT * FROM f_comment where ARTICLEID = #{articleId} order by CREATEDATE desc LIMIT #{page.startPage},#{page.numPerPage}; -->
-<!-- 	</select> -->
+	<select id="selectCurrPage" resultType="joke" parameterType="jokeVo">
+		SELECT * FROM f_joke LIMIT #{page.startPage},#{page.numPerPage};
+	</select>
 	
 	<!-- 查出总数 -->
-<!-- 	<select id="countNum" resultType="int"> -->
-<!-- 		SELECT count(*) FROM f_comment where ARTICLEID = #{articleId}; -->
-<!-- 	</select> -->
+	<select id="countNum" resultType="int">
+		SELECT count(*) FROM f_joke;
+	</select>
 	
 </mapper>

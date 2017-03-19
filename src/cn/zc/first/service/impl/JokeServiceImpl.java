@@ -1,5 +1,7 @@
 package cn.zc.first.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.zc.first.mapper.JokeMapper;
@@ -23,5 +25,17 @@ public class JokeServiceImpl implements JokeService{
 	@Override
 	public Joke queryJokeById(JokeVo jokeVo) {
 		return jokeMapper.selectById(jokeVo);
+	}
+
+
+	@Override
+	public int countNum() {
+		return jokeMapper.countNum();
+	}
+
+
+	@Override
+	public List<Joke> selectCurrPage(JokeVo jokeVo) {
+		return jokeMapper.selectCurrPage(jokeVo);
 	}
 }

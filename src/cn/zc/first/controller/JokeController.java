@@ -1,6 +1,5 @@
 package cn.zc.first.controller;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -15,11 +14,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.zc.first.common.CommonFunctions;
 import cn.zc.first.common.MyConstants;
+import cn.zc.first.common.Page;
 import cn.zc.first.po.Joke;
 import cn.zc.first.po.JokeVo;
 import cn.zc.first.po.User;
@@ -27,7 +30,7 @@ import cn.zc.first.service.JokeService;
 
 @Controller
 @RequestMapping("/background")
-public class JokeController {
+public class JokeController extends BaseController{
 	
 	@Autowired
 	private JokeService jokeService;
@@ -35,22 +38,26 @@ public class JokeController {
 	@Autowired
 	private CommonFunctions commonFunctions;
 	
+	
 	@RequestMapping(value="/getReadyJoke" ,produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String getReadyJoke() throws Exception {
+	public String getReadyJoke(@RequestParam("rows") String rows,@RequestParam("page") String page) throws Exception {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		List<Joke> jokeList = new ArrayList<Joke>();
-		for (int i = 0; i < 10; i++) {
-			Joke joke = new Joke();
-			
-			joke.setId(i);
-			joke.setTitle("xxx"+ i);
-			joke.setAuthor("jjj"+i);
-			jokeList.add(joke);
-		}
+		System.out.println(rows);
+		int oneRecord = Integer.valueOf(rows);
+		int pageNo = Integer.valueOf(page);
+		Page pageUtil = new Page();
+		int totalRecord = jokeService.countNum();
+		pageUtil.setTotalRecord(totalRecord);
+		pageUtil.setNumPerPage(oneRecord);
+		pageUtil.setCurrPage(pageNo);
+		pageUtil.init();
+		JokeVo jokeVo = new JokeVo();
+		jokeVo.setPage(pageUtil);
+		List<Joke> jokeList = jokeService.selectCurrPage(jokeVo);
 		resultMap.put("rows", jokeList);
-		resultMap.put("total", 1);
-		resultMap.put("records", 10);
+		resultMap.put("total", pageUtil.getTotalPage());
+		resultMap.put("records", totalRecord);
 		JSONObject  json = JSONObject .fromObject(resultMap);
 		return  json.toString();
 	}
