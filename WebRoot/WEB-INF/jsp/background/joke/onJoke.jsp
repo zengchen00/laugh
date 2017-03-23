@@ -32,8 +32,21 @@
 			<jsp:include page="../left.jsp" />
 			<div class="col-md-9">
 				<div class="pagecontent">
-				<table id="grid-table"></table>
-				<div id="grid-pager"></div>
+					<p>
+						<button onclick="changeState()" class="btn btn-white btn-info btn-bold">
+							<i class="ace-icon fa fa-eye bigger-120 blue"></i>
+							预览
+							</button>
+							<button onclick="changeState(1)" class="btn btn-white btn-warning btn-bold">
+							<i class="ace-icon fa fa-bolt bigger-120 orange"></i>
+							下线
+							</button>
+							<button onclick="changeState(3)" class="btn btn-white btn-default btn-round">
+								<i class="ace-icon fa fa-trash-o red2"></i>删除
+							</button>
+					</p>
+					<table id="grid-table"></table>
+					<div id="grid-pager"></div>
 				</div>
 			</div>
 		</div>

@@ -75,7 +75,9 @@ public class JokeController extends BaseController{
 	
 	@RequestMapping(value="/getReadyJoke" ,produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String getReadyJoke(@RequestParam("rows") String rows,@RequestParam("page") String page) throws Exception {
+	public String getReadyJoke(@RequestParam("rows") String rows,
+			@RequestParam("page") String page,@RequestParam("sidx") 
+			String sidx,@RequestParam("sord") String sord) throws Exception {
 		int oneRecord = Integer.valueOf(rows);
 		int pageNo = Integer.valueOf(page);
 		Page pageUtil = new Page();
@@ -85,6 +87,8 @@ public class JokeController extends BaseController{
 		pageUtil.setCurrPage(pageNo);
 		pageUtil.init();
 		JokeVo jokeVo = new JokeVo();
+		jokeVo.setOrderBy(sidx);
+		jokeVo.setOrderType(sord);
 		jokeVo.setPage(pageUtil);
 		jokeVo.setState(MyConstants.JOKE_STATE_READY);
 		List<Joke> jokeList = jokeService.selectCurrPage(jokeVo);
@@ -97,7 +101,9 @@ public class JokeController extends BaseController{
 	
 	@RequestMapping(value="/getOnJoke" ,produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String getOnJoke(@RequestParam("rows") String rows,@RequestParam("page") String page) throws Exception {
+	public String getOnJoke(@RequestParam("rows") String rows,
+			@RequestParam("page") String page,@RequestParam("sidx") 
+	String sidx,@RequestParam("sord") String sord) throws Exception {
 		int oneRecord = Integer.valueOf(rows);
 		int pageNo = Integer.valueOf(page);
 		Page pageUtil = new Page();
@@ -107,6 +113,8 @@ public class JokeController extends BaseController{
 		pageUtil.setCurrPage(pageNo);
 		pageUtil.init();
 		JokeVo jokeVo = new JokeVo();
+		jokeVo.setOrderBy(sidx);
+		jokeVo.setOrderType(sord);
 		jokeVo.setPage(pageUtil);
 		jokeVo.setState(MyConstants.JOKE_STATE_ONLINE);
 		List<Joke> jokeList = jokeService.selectCurrPage(jokeVo);
@@ -119,7 +127,9 @@ public class JokeController extends BaseController{
 	
 	@RequestMapping(value="/getDeleteJoke" ,produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String getDeleteJoke(@RequestParam("rows") String rows,@RequestParam("page") String page) throws Exception {
+	public String getDeleteJoke(@RequestParam("rows") String rows,
+			@RequestParam("page") String page,@RequestParam("sidx") 
+	String sidx,@RequestParam("sord") String sord) throws Exception {
 		int oneRecord = Integer.valueOf(rows);
 		int pageNo = Integer.valueOf(page);
 		Page pageUtil = new Page();
@@ -129,6 +139,8 @@ public class JokeController extends BaseController{
 		pageUtil.setCurrPage(pageNo);
 		pageUtil.init();
 		JokeVo jokeVo = new JokeVo();
+		jokeVo.setOrderBy(sidx);
+		jokeVo.setOrderType(sord);
 		jokeVo.setPage(pageUtil);
 		jokeVo.setState(MyConstants.JOKE_STATE_DELETE);
 		List<Joke> jokeList = jokeService.selectCurrPage(jokeVo);
