@@ -27,6 +27,41 @@ public class IndexController {
 
 	}
 	
+	@RequestMapping("/index2")
+	public ModelAndView index2() throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/index2");
+		return mv;
+
+	}
+	
+	@RequestMapping("/gifIndex2")
+	public ModelAndView gifIndex2() throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/gifIndex2");
+		return mv;
+
+	}
+	
+	@RequestMapping("/jokeIndex")
+	public ModelAndView jokeIndex() throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/jokeIndex");
+		return mv;
+
+	}
+	
+	@RequestMapping("/gifDetail2")
+	public ModelAndView gifDetail2() throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/gifDetail2");
+		return mv;
+
+	}
+	
+	@RequestMapping("/jokeDetail")
+	public ModelAndView jokeDetail() throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/jokeDetail");
+		return mv;
+
+	}
+	
 	@RequestMapping("/mobile")
 	public String mobile() throws Exception {
 		return "foreground/mobile";

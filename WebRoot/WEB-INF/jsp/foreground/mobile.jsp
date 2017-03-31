@@ -65,7 +65,7 @@
 <!-- <div id="iframe-wrap" class="tablet-width"> -->
 		<div id="iframe-wrap" class="mobile-width">
 <!-- <div id="iframe-wrap" class="mobile-width-3"> -->
-		    <iframe id="iframe" src="${pageContext.request.contextPath}/foreground/gif.html" frameborder="0" width="100%" height="160px"> </iframe>
+		    <iframe id="iframe" src="${pageContext.request.contextPath}/foreground/jokeDetail.html" frameborder="0" width="100%" height="160px"> </iframe>
 </div>
 <script type="text/javascript">
 	$("#one").click(function(){
