@@ -35,7 +35,12 @@
 				<label>笑话标题</label>
 				<input type="text" id="jokeTitle" placeholder="笑话标题…">
 			</fieldset>
-			<div class="space-24"></div>
+			<div class="space-10"></div>
+			<fieldset>
+				<label>期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数</label>
+				<input type="text" id="period" placeholder="期数…">
+			</fieldset>
+			<div class="space-12"></div>
 				<div id="tbody" class="widget-box widget-color-green">
 					<div class="widget-header widget-header-small">
 						<div class="wysiwyg-toolbar btn-toolbar center inline"></div>

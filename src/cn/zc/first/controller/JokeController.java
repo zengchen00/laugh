@@ -37,7 +37,7 @@ public class JokeController extends BaseController{
 	@Autowired
 	private CommonFunctions commonFunctions;
 	
-	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	/**
 	 * 更改笑话状态
 	 * @param map
@@ -180,8 +180,7 @@ public class JokeController extends BaseController{
 	@RequestMapping(value="/saveJoke" ,produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String saveJoke(HttpServletRequest request,@RequestBody Map<String, String> map) throws Exception {
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		if(map.containsKey("content") && map.containsKey("title")){
+		if(map.containsKey("content") && map.containsKey("title")&& map.containsKey("period")){
 			JokeVo jokeVo = new JokeVo();
 			//判断session
 			HttpSession session  = request.getSession();
@@ -196,6 +195,7 @@ public class JokeController extends BaseController{
 			jokeVo.setModifyDate(date);
 			jokeVo.setCreateDateStr(df.format(date));
 			jokeVo.setModifyDateStr(df.format(date));
+			jokeVo.setPeriods(map.get("period").trim());
 			
 			jokeService.insert(jokeVo);
 			resultMap.put("success",true);

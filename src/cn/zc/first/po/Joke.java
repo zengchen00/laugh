@@ -2,7 +2,6 @@ package cn.zc.first.po;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 public class Joke implements Serializable {
 	
@@ -18,6 +17,7 @@ public class Joke implements Serializable {
 	private String createDateStr;
 	private int state;
 	private int open;
+	private String periods;
 	public int getId() {
 		return id;
 	}
@@ -78,10 +78,17 @@ public class Joke implements Serializable {
 	public void setOpen(int open) {
 		this.open = open;
 	}
+	public String getPeriods() {
+		return periods;
+	}
+	public void setPeriods(String periods) {
+		this.periods = periods;
+	}
+	
 	@Override
 	public String toString() {
 		return "Joke [id=" + id + ", author=" + author + ", title=" + title + ", content=" + content + ", modifyDate="
 				+ modifyDate + ", createDate=" + createDate + ", modifyDateStr=" + modifyDateStr + ", createDateStr="
-				+ createDateStr + ", state=" + state + ", open=" + open + "]";
+				+ createDateStr + ", state=" + state + ", open=" + open + ", periods=" + periods + "]";
 	}
 }

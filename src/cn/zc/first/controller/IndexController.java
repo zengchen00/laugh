@@ -41,12 +41,12 @@ public class IndexController {
 
 	}
 	
-	@RequestMapping("/jokeIndex")
-	public ModelAndView jokeIndex() throws Exception {
-		ModelAndView mv = new ModelAndView("foreground/jokeIndex");
-		return mv;
-
-	}
+//	@RequestMapping("/jokeIndex")
+//	public ModelAndView jokeIndex() throws Exception {
+//		ModelAndView mv = new ModelAndView("foreground/jokeIndex");
+//		return mv;
+//
+//	}
 	
 	@RequestMapping("/gifDetail2")
 	public ModelAndView gifDetail2() throws Exception {
@@ -55,12 +55,12 @@ public class IndexController {
 
 	}
 	
-	@RequestMapping("/jokeDetail")
-	public ModelAndView jokeDetail() throws Exception {
-		ModelAndView mv = new ModelAndView("foreground/jokeDetail");
-		return mv;
-
-	}
+//	@RequestMapping("/jokeDetail")
+//	public ModelAndView jokeDetail() throws Exception {
+//		ModelAndView mv = new ModelAndView("foreground/jokeDetail");
+//		return mv;
+//
+//	}
 	
 	@RequestMapping("/mobile")
 	public String mobile() throws Exception {

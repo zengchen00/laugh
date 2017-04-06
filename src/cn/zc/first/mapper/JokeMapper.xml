@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.zc.first.mapper.JokeMapper" >
  	<insert id="insert" parameterType="jokeVo">
- 		insert into f_joke(TITLE,CONTENT,STATE,AUTHOR,CREATEDATE,MODIFYDATE,CREATEDATESTR,MODIFYDATESTR) value(#{title},#{content},#{state},#{author},#{createDate},#{modifyDate},#{createDateStr},#{modifyDateStr})
+ 		insert into f_joke(TITLE,CONTENT,STATE,AUTHOR,CREATEDATE,MODIFYDATE,CREATEDATESTR,MODIFYDATESTR,periods) value(#{title},#{content},#{state},#{author},#{createDate},#{modifyDate},#{createDateStr},#{modifyDateStr},#{periods})
  	</insert>
  	
  	<select id="selectById" parameterType="jokeVo" resultType="joke">
