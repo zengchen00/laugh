@@ -38,6 +38,7 @@ public class JokeController extends BaseController{
 	private CommonFunctions commonFunctions;
 	
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
 	/**
 	 * 更改笑话状态
 	 * @param map

@@ -19,6 +19,24 @@
 			<form method="post" action="${pageContext.request.contextPath}/background/doAddGifs.html" enctype="multipart/form-data">
 			  <table id="table" class="table table-striped table-condensed">
 			  <tr>
+			    	<td style="text-align:center;vertical-align:middle;">
+						<span style="width:10%;">标&nbsp;&nbsp;&nbsp;&nbsp;题：</span>
+						
+			    	</td>
+			    	<td>
+						<input id="title" name="title" class="form-control" type="text" style="display: inline;">
+					</td>
+			    </tr>
+			   <tr>
+			    	<td style="text-align:center;vertical-align:middle;">
+						<span style="width:10%;">期&nbsp;&nbsp;&nbsp;&nbsp;数：</span>
+						
+			    	</td>
+			    	<td>
+						<input id="periods" name="periods" class="form-control" type="text" style="display: inline;">
+					</td>
+			    </tr>
+			   <tr>
 			  	<td style="width:30px;" class="eleCenter">
 					 <button id="addRow" type="button" class="btn btn-primary">新增一行</button>
 				</td>
@@ -26,15 +44,6 @@
 				<span style="float: right; margin-right: 1rem;padding-top: 0.5rem;">总行数：<strong id="totalNum"></strong></span>
 				</td>
 			  </tr>
-<!-- 			   <tr> -->
-<!-- 			    	<td style="text-align:center;vertical-align:middle;"> -->
-<!-- 						<span style="width:10%;">新增期数：</span> -->
-<!-- 						<input id="" name="" class="form-control" type="text" style="display: inline;"> -->
-<!-- 			    	</td> -->
-<!-- 			    	<td> -->
-<!-- 						<span style="float: right; margin-right: 1rem;padding-top: 0.5rem;">当前总期数：<strong id="">20</strong></span> -->
-<!-- 					</td> -->
-<!-- 			    </tr> -->
 			    <tr>
 			    	<td style="text-align:center;vertical-align:middle;">
 						<button name="delRow" type="button" class="btn btn-warning">删除行</button>
@@ -56,6 +65,26 @@
 			    	</td>
 			    </tr>
 			     <tr>
+			    	<td style="text-align:center;vertical-align:middle;">
+						<button name="delRow" type="button" class="btn btn-warning">删除行</button>
+			    	</td>
+			    	<td>
+			    		<span style="width:10%;">图片描述：</span>
+			    		<input id="" name="fileDes" class="form-control" type="text" style="display: inline;width:90%;">
+			    		<input id="" name="clientFile" class="file mt10" type="file">
+			    	</td>
+			    </tr>
+			    <tr>
+			    	<td style="text-align:center;vertical-align:middle;">
+						<button name="delRow" type="button" class="btn btn-warning">删除行</button>
+			    	</td>
+			    	<td>
+			    		<span style="width:10%;">图片描述：</span>
+			    		<input id="" name="fileDes" class="form-control" type="text" style="display: inline;width:90%;">
+			    		<input id="" name="clientFile" class="file mt10" type="file">
+			    	</td>
+			    </tr>
+			    <tr>
 			    	<td style="text-align:center;vertical-align:middle;">
 						<button name="delRow" type="button" class="btn btn-warning">删除行</button>
 			    	</td>
@@ -97,7 +126,7 @@ $(function(){
 });
 
 var getTotalNum = function(){
-	$("#totalNum").text($("#table").find("tr").length-1);
+	$("#totalNum").text($("#table").find("tr").length-3);
 }
 </script>
 </body>

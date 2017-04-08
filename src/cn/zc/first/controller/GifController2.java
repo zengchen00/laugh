@@ -60,16 +60,14 @@ public class GifController2 {
 		
 		ArticleVo av = new ArticleVo();
 		av.setState(MyConstants.ARTICLE_STATE_ONLINE);
-		av.setFromLimit(page.getStartPage());
-		av.setEndLimit(page.getNumPerPage());
+		av.setPage(page);
 		av.setOrderBy("INDEXNUM");
 		av.setOrderType("desc");
 		List<Article> articles = articleServiceImpl.selectCurrPage(av);
 		
 		av = new ArticleVo();
 		av.setState(MyConstants.ARTICLE_STATE_ONLINE);
-		av.setFromLimit(0);
-		av.setEndLimit(MyConstants.ARTICLE_RINGKING);
+		av.setPage(page);
 		av.setOrderBy("OPEN");
 		av.setOrderType("desc");
 		List<Article> articleRanking = articleServiceImpl.selectCurrPage(av);
@@ -102,8 +100,7 @@ public class GifController2 {
 			av.setState(MyConstants.ARTICLE_STATE_ONLINE);
 			av.setOrderBy("INDEXNUM");
 			av.setOrderType("desc");
-			av.setFromLimit(page.getStartPage());
-			av.setEndLimit(page.getNumPerPage());
+			av.setPage(page);
 			List<Article> articles = articleServiceImpl.selectCurrPage(av);
 			resultMap.put("page", page);
 			resultMap.put("articles", articles);

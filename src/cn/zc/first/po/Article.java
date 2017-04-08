@@ -19,7 +19,7 @@ public class Article implements Serializable {
 	private String createDateStr;
 	private int state;
 	private int open;
-	private int indexNum;
+	private int periods;
 	private List<ArticleDetail> articleDetails;
 	
 	public int getId() {
@@ -82,11 +82,11 @@ public class Article implements Serializable {
 	public void setOpen(int open) {
 		this.open = open;
 	}
-	public int getIndexNum() {
-		return indexNum;
+	public int getPeriods() {
+		return periods;
 	}
-	public void setIndexNum(int indexNum) {
-		this.indexNum = indexNum;
+	public void setPeriods(int periods) {
+		this.periods = periods;
 	}
 	public String getModifyDateStr() {
 		return modifyDateStr;
