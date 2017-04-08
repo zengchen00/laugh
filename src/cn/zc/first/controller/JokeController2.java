@@ -29,22 +29,34 @@ public class JokeController2 extends BaseController{
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/jokeIndex" ,produces = "text/html;charset=UTF-8")
-	public ModelAndView jokeIndex() throws Exception {
+	public ModelAndView jokeIndex(String pageNum) throws Exception {
+		if(pageNum == null || !NumberUtils.isNumber(pageNum)){
+			pageNum="1";
+		}
 		ModelAndView mv = new ModelAndView("foreground/jokeIndex");
+		int total = jokeService.countNum(MyConstants.JOKE_STATE_ONLINE);
 		//查询最新5期笑话
 		JokeVo jokeVo = new JokeVo();
 		jokeVo.setState(MyConstants.JOKE_STATE_ONLINE);
 		jokeVo.setOrderBy("periods");
 		jokeVo.setOrderType("desc");
 		Page page = new Page();
-		page.setStartPage(0);
+		page.setTotalRecord(total);
+		page.setCurrPage(Integer.parseInt(pageNum));
 		page.setNumPerPage(MyConstants.JOKE_INDEX_NUM);
+		page.init();
 		jokeVo.setPage(page);
 		List<Joke> jokes = jokeService.selectCurrPage(jokeVo);
-		
+		//点击排行榜
+		jokeVo.setOrderBy("open");
+		jokeVo.setOrderType("desc");
+		page.setNumPerPage(MyConstants.JOKE_RINGKING);
+		jokeVo.setPage(page);
+		List<Joke> jokeRank = jokeService.selectCurrPage(jokeVo);
 		
 		mv.addObject("page",page);
 		mv.addObject("jokes",jokes);
+		mv.addObject("jokeRank",jokeRank);
 		mv.addObject("cur","3");
 		return mv;
 	}
@@ -57,9 +69,28 @@ public class JokeController2 extends BaseController{
 			mv.setViewName("redirect:/foreground/jokeIndex");
 			return mv;
 		}
+		//本篇
 		JokeVo jokeVo = new JokeVo();
 		jokeVo.setId(Integer.parseInt(id));
 		Joke joke = jokeService.queryJokeById(jokeVo);
+		//本篇阅读次数+1
+		jokeVo.setOpen(joke.getOpen() + 1);
+		jokeService.updateOpen(jokeVo);
+		//上一篇
+		int prePeriod = joke.getPeriods() - 1;
+		JokeVo jokeVo1 = new JokeVo();
+		jokeVo1.setPeriods(prePeriod);
+		jokeVo1.setState(MyConstants.JOKE_STATE_ONLINE);
+		Joke jokePre = jokeService.selectPreSuf(jokeVo1);
+		//下一篇
+		int sufPeriod = joke.getPeriods() + 1;
+		JokeVo jokeVo2 = new JokeVo();
+		jokeVo2.setPeriods(sufPeriod);
+		jokeVo2.setState(MyConstants.JOKE_STATE_ONLINE);
+		Joke jokeSuf = jokeService.selectPreSuf(jokeVo2);
+		
+		mv.addObject("jokeSuf",jokeSuf);
+		mv.addObject("jokePre",jokePre);
 		mv.addObject("cur","3");
 		mv.addObject("joke",joke);
 		return mv;

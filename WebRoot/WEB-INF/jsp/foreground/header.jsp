@@ -19,7 +19,7 @@
 		      <ul class="nav navbar-nav">
 		        <li id="index"><a href="#">网站首页</a></li>
 		        <li id="gifIndex"><a href="#">搞笑gif图</a></li>
-		        <li id="jokeIndex"><a href="#">极品笑话</a></li>
+		        <li id="jokeIndex"><a href="${pageContext.request.contextPath}/foreground/jokeIndex.html?pageNum=1">极品笑话</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li id="aboutUs"><a href="#">关于我们</a></li>

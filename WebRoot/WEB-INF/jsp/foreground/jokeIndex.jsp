@@ -29,49 +29,48 @@
 				${item.content}
 				‍‍‍‍</div>
 				<div class="panel-footer" style="opacity:0.99;">
-				<a href="${pageContext.request.contextPath}/foreground/jokeDetail.html?id=${item.id}">查看全文</a>
-<%-- 				<a href="javascript:void(0);" onclick="getJokeDetail(${item.id})">查看全文</a> --%>
+					<a href="${pageContext.request.contextPath}/foreground/jokeDetail.html?id=${item.id}">查看全文</a>
 				</div>
 			</div>
 		 </c:forEach>
-			
-			
-  
   		</div>
-  <div style="border-bottom-right-radius:3px;border-bottom-left-radius:3px;text-align: center;">
-	<ul class="pagination">
-	   <li><a href="#">&laquo;</a></li>
-	   <li><a href="#">1</a></li>
-	   <li><a href="#">2</a></li>
-	   <li><a href="#">3</a></li>
-	   <li><a href="#">4</a></li>
-	   <li><a href="#">5</a></li>
-	   <li><a href="#">&raquo;</a></li>
-	</ul>
-</div>
-	   
+		  <div style="border-bottom-right-radius:3px;border-bottom-left-radius:3px;text-align: center;">
+			<ul class="pagination">
+				<c:if test="${page.hasPrePage}">
+			   		<li><a href="${pageContext.request.contextPath}/foreground/jokeIndex.html?pageNum=1">&laquo;</a></li>
+			   	</c:if>
+			   	<c:if test="${!page.hasPrePage}">
+			   		<li class="disabled"><a href="#">&laquo;</a></li>
+			   	</c:if>
+			   	
+				<c:forEach var="item" items="${page.pageList}" varStatus="status">
+				   <c:if test="${page.currPage == item}">
+					  	<li  class="active"><a href="${pageContext.request.contextPath}/foreground/jokeIndex.html?pageNum=${item}">${item}</a></li>
+				   </c:if>
+				   <c:if test="${page.currPage != item}">
+					  	<li><a href="${pageContext.request.contextPath}/foreground/jokeIndex.html?pageNum=${item}">${item}</a></li>
+				   </c:if>
+				 </c:forEach>
+				   
+				<c:if test="${page.hasNextPage}">
+			   		<li><a href="${pageContext.request.contextPath}/foreground/jokeIndex.html?pageNum=${page.totalPage}">&raquo;</a></li>
+			   	</c:if>
+			   	<c:if test="${!page.hasNextPage}">
+			   		<li class="disabled"><a href="#">&raquo;</a></li>
+			   	</c:if>
+			</ul>
+		</div>
 	</div>
-	
-	
-
 </div>
+
   <div class="col-xs-12 col-md-3">
 	 <div class="panel panel-info" style="margin-right: 30px;">
 		<div class="panel-heading">点击排行榜</div>
 		<div class="panel-body cfbox">
 				<ul>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
-                   <li><span>[10]</span>▪<a href="" target="_blank">第1期 滴答滴答滴答滴答的</a></li>
+					 <c:forEach var="item" items="${jokeRank}" varStatus="status">
+	                   <li><span>[${item.open}]</span>▪<a href="${pageContext.request.contextPath}/foreground/jokeDetail.html?id=${item.id}" target="_blank">第${item.periods}期 ${item.title}</a></li>
+	                 </c:forEach>
                 </ul>
 		</div>
 	</div>

@@ -45,4 +45,15 @@ public class JokeServiceImpl implements JokeService{
 		jokeMapper.updateJokeById(jokeVo);
 		
 	}
+	
+	@Override
+	public Joke selectPreSuf(JokeVo jokeVo) {
+		return jokeMapper.selectPreSuf(jokeVo);
+	}
+	
+	@Override
+	public void updateOpen(JokeVo jokeVo) {
+		jokeMapper.updateOpen(jokeVo);
+	}
+	
 }

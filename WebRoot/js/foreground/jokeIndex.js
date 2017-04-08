@@ -32,13 +32,13 @@ $(function(){
 //	});
 })
 
-var getJokeDetail = function(id){
+var getJokeByPage = function(pageNum){
 	if(isEmpty(id)){
 		return;
 	}
-	var url = $("#serverPath") + "/foreground/jokeDetail.html";
+	var url = $("#serverPath") + "/foreground/getJokeByPage.html";
 	var data = new jsonData();
-	data.put("id",id);
+	data.put("pageNum",pageNum);
 	var dataJson = data.toJson();
 	myAjax(url,dataJson,function(data){
 		if(data.success){

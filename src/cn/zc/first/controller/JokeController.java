@@ -195,7 +195,7 @@ public class JokeController extends BaseController{
 			jokeVo.setModifyDate(date);
 			jokeVo.setCreateDateStr(df.format(date));
 			jokeVo.setModifyDateStr(df.format(date));
-			jokeVo.setPeriods(map.get("period").trim());
+			jokeVo.setPeriods(Integer.parseInt(map.get("period").trim()));
 			
 			jokeService.insert(jokeVo);
 			resultMap.put("success",true);

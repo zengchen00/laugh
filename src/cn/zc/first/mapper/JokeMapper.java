@@ -16,4 +16,8 @@ public interface JokeMapper {
     int countNum(int state);
     
     void updateJokeById(JokeVo jokeVo);
+    
+    Joke selectPreSuf(JokeVo jokeVo);
+    
+    void updateOpen(JokeVo jokeVo);
 }

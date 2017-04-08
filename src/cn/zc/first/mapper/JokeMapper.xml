@@ -30,4 +30,14 @@
 	<update id="updateJokeById" parameterType="jokeVo">
 		UPDATE f_joke SET STATE = #{state},author=#{author},MODIFYDATE=#{modifyDate},MODIFYDATESTR=#{modifyDateStr} WHERE ID = #{id};
 	</update>
+	
+	<!-- 查出上下篇 -->
+	<select id="selectPreSuf" resultType="joke" parameterType="jokeVo">
+		SELECT * FROM f_joke where STATE = #{state} and periods = #{periods}
+	</select>
+	
+	<!-- 更新查看次数 -->
+	<update id="updateOpen" parameterType="jokeVo">
+		UPDATE f_joke SET OPEN = #{open} WHERE ID = #{id};
+	</update>
 </mapper>

@@ -17,7 +17,7 @@ public class Joke implements Serializable {
 	private String createDateStr;
 	private int state;
 	private int open;
-	private String periods;
+	private int periods;
 	public int getId() {
 		return id;
 	}
@@ -78,10 +78,10 @@ public class Joke implements Serializable {
 	public void setOpen(int open) {
 		this.open = open;
 	}
-	public String getPeriods() {
+	public int getPeriods() {
 		return periods;
 	}
-	public void setPeriods(String periods) {
+	public void setPeriods(int periods) {
 		this.periods = periods;
 	}
 	

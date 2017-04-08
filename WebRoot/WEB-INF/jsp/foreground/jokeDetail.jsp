@@ -24,7 +24,21 @@
 	    <div class="panel-body">
 	    ${joke.content}
   		</div>
-	   <div class="panel-footer"><a>上一篇</a><a style="float:right;">下一篇</a></div>
+	   <div class="panel-footer">
+		   <c:if test="${empty jokePre}">
+		   	 <a>上一篇：没有了</a>
+		   </c:if>
+		   <c:if test="${not empty jokePre}">
+		   	 <a href="${pageContext.request.contextPath}/foreground/jokeDetail.html?id=${jokePre.id}">上一篇：${jokePre.title}</a>
+		   </c:if>
+		   
+		   <c:if test="${empty jokeSuf}">
+		   	<a style="float:right;">下一篇：没有了</a>
+		   </c:if>
+		   <c:if test="${not empty jokeSuf}">
+		   	<a style="float:right;" href="${pageContext.request.contextPath}/foreground/jokeDetail.html?id=${jokeSuf.id}">下一篇：${jokeSuf.title}</a>
+		   </c:if>
+	   </div>
 	</div>
 	
 	
