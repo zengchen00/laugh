@@ -12,8 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cn.zc.first.common.MyConstants;
 import cn.zc.first.common.Page;
+import cn.zc.first.po.Article;
+import cn.zc.first.po.ArticleVo;
 import cn.zc.first.po.Joke;
 import cn.zc.first.po.JokeVo;
+import cn.zc.first.service.ArticleService;
 import cn.zc.first.service.JokeService;
 
 @Controller
@@ -22,6 +25,9 @@ public class JokeController2 extends BaseController{
 	
 	@Autowired
 	private JokeService jokeService;
+	
+	@Autowired
+	private ArticleService articleServiceImpl;
 	
 	/**
 	 * 笑话首页
@@ -51,6 +57,7 @@ public class JokeController2 extends BaseController{
 		jokeVo.setOrderBy("open");
 		jokeVo.setOrderType("desc");
 		page.setNumPerPage(MyConstants.JOKE_RINGKING);
+		page.setStartPage(0);
 		jokeVo.setPage(page);
 		List<Joke> jokeRank = jokeService.selectCurrPage(jokeVo);
 		
@@ -88,11 +95,22 @@ public class JokeController2 extends BaseController{
 		jokeVo2.setPeriods(sufPeriod);
 		jokeVo2.setState(MyConstants.JOKE_STATE_ONLINE);
 		Joke jokeSuf = jokeService.selectPreSuf(jokeVo2);
-		
+		//查gif最新 4 期
+		Page page = new Page();
+		page.setNumPerPage(MyConstants.JOKE_DETAIL_GIF);
+		page.setStartPage(0);
+		ArticleVo av = new ArticleVo();
+		av.setState(MyConstants.ARTICLE_STATE_ONLINE);
+		av.setPage(page);
+		av.setOrderBy("open");
+		av.setOrderType("desc");
+		List<Article> articles = articleServiceImpl.selectCurrPage(av);
+				
 		mv.addObject("jokeSuf",jokeSuf);
 		mv.addObject("jokePre",jokePre);
 		mv.addObject("cur","3");
 		mv.addObject("joke",joke);
+		mv.addObject("articles",articles);
 		return mv;
 	}
 	

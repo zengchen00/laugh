@@ -46,68 +46,41 @@ public class GifController2 {
 	@Autowired
 	private CommentService commentService;
 	
-	@Autowired
-	private Page page;
-	
-	@RequestMapping("/gif")
-	public ModelAndView gif() throws Exception {
+	@RequestMapping("/gifIndex")
+	public ModelAndView gifIndex(String pageNum) throws Exception {
+		if(pageNum == null || !NumberUtils.isNumber(pageNum)){
+			pageNum="1";
+		}
 		ModelAndView mv = new ModelAndView("foreground/gifIndex");
+		//查最新6期
+		Page page = new Page();
 		int totalRecord = articleServiceImpl.selectTotal(MyConstants.ARTICLE_STATE_ONLINE);
 		page.setTotalRecord(totalRecord);
 		page.setNumPerPage(MyConstants.GIF_NUM_PER);
-		page.setCurrPage(1);
+		page.setCurrPage(Integer.parseInt(pageNum));
 		page.init();
 		
 		ArticleVo av = new ArticleVo();
 		av.setState(MyConstants.ARTICLE_STATE_ONLINE);
 		av.setPage(page);
-		av.setOrderBy("INDEXNUM");
+		av.setOrderBy("periods");
 		av.setOrderType("desc");
 		List<Article> articles = articleServiceImpl.selectCurrPage(av);
 		
 		av = new ArticleVo();
 		av.setState(MyConstants.ARTICLE_STATE_ONLINE);
-		av.setPage(page);
-		av.setOrderBy("OPEN");
+		av.setOrderBy("open");
 		av.setOrderType("desc");
+		page.setNumPerPage(MyConstants.ARTICLE_RINGKING);
+		page.setStartPage(0);
+		av.setPage(page);
 		List<Article> articleRanking = articleServiceImpl.selectCurrPage(av);
-		List<Article> openRanking = new ArrayList<Article>();
-		for (Article article : articleRanking) {
-			article.setCreateDateStr(commonFunctions.DateToStr(article.getCreateDate(), "yyyy-MM-dd"));
-			openRanking.add(article);
-		}
 		
 		mv.addObject("page",page);
 		mv.addObject("articles",articles);
-		mv.addObject("articleRanking",openRanking);
+		mv.addObject("articleRanking",articleRanking);
 		mv.addObject("cur","2");
 		return mv;
-	}
-	
-	@RequestMapping(value="/queryCurrPage",produces = "text/html;charset=UTF-8")
-	@ResponseBody
-	public String queryCurrPage(HttpServletRequest request,@RequestBody Map<String, String> map) throws Exception {
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		if(map.containsKey("cp")){
-			int currPageNum=Integer.parseInt(map.get("cp"));
-			int totalRecord = articleServiceImpl.selectTotal(MyConstants.ARTICLE_STATE_ONLINE);
-			page.setTotalRecord(totalRecord);
-			page.setNumPerPage(MyConstants.GIF_NUM_PER);
-			page.setCurrPage(currPageNum);
-			page.init();
-			
-			ArticleVo av = new ArticleVo();
-			av.setState(MyConstants.ARTICLE_STATE_ONLINE);
-			av.setOrderBy("INDEXNUM");
-			av.setOrderType("desc");
-			av.setPage(page);
-			List<Article> articles = articleServiceImpl.selectCurrPage(av);
-			resultMap.put("page", page);
-			resultMap.put("articles", articles);
-			JSONObject  json = JSONObject .fromObject(resultMap);
-			return  json.toString();
-		}
-		return  null;
 	}
 	
 	@RequestMapping("/gifDetail")
@@ -115,13 +88,13 @@ public class GifController2 {
 			String id) throws Exception {
 		ModelAndView mv = new ModelAndView("foreground/gifDetail");
 		if(id == null || !NumberUtils.isNumber(id)){
-			mv.setViewName("redirect:/foreground/gif");
+			mv.setViewName("redirect:/foreground/gifIndex");
 			return mv;
 		}
-		
+		Page page = new Page();
 		Article article = articleServiceImpl.selectArticleById(Integer.valueOf(id));
 		if(article == null){
-			mv.setViewName("redirect:/foreground/gif");
+			mv.setViewName("redirect:/foreground/gifIndex");
 			return mv;
 		}
 		//查询详情
@@ -135,31 +108,30 @@ public class GifController2 {
 		av.setPage(page);
 		List<ArticleDetail> articleDetails = articleDetailServiceImpl.selectCurrPage(av);
 		
-		//查询评论
-		int totalRecord1 = commentService.countNum(Integer.valueOf(id));
-		Page commentPage = new Page();
-		commentPage.setTotalRecord(totalRecord1);
-		commentPage.setNumPerPage(8);
-		commentPage.setCurrPage(1);
-		commentPage.init();
-		CommentVo av1 = new CommentVo();
-		av1.setArticleId(id);
-		av1.setPage(commentPage);
-		List<Comment> commentList = commentService.selectCurrPage(av1);
-		
 		//更新查看次数
 		ArticleVo articleVo = new ArticleVo();
 		articleVo.setId(Integer.valueOf(id));
 		articleVo.setOpen(article.getOpen()+1);
 		articleServiceImpl.updateArticleOpens(articleVo);
 		
+		//查出热情推荐
+		articleVo = new ArticleVo();
+		articleVo.setState(MyConstants.ARTICLE_STATE_ONLINE);
+		articleVo.setOrderBy("open");
+		articleVo.setOrderType("asc");
+		page.setNumPerPage(MyConstants.GIF_DETAIL_SHOW);
+		page.setStartPage(0);
+		articleVo.setPage(page);
+		List<Article> articleRanking = articleServiceImpl.selectCurrPage(articleVo);
+		
+		
+		
 		//向页面传值
 		mv.addObject("page",page);
-		mv.addObject("commentPage",commentPage);
 		mv.addObject("articleId",id);
 		mv.addObject("cur","2");
-		mv.addObject("commentList",commentList);
 		mv.addObject("articleDetails",articleDetails);
+		mv.addObject("articleRanking",articleRanking);
 		return mv;
 	}
 	
@@ -171,6 +143,7 @@ public class GifController2 {
 			int currPageNum=Integer.parseInt(map.get("pageNum"));
 			int articleId = Integer.parseInt(map.get("articleId"));
 			int totalRecord = articleDetailServiceImpl.countNum(articleId);
+			Page page = new Page();
 			page.setTotalRecord(totalRecord);
 			page.setNumPerPage(MyConstants.GIF_DETAIL_PER);
 			page.setCurrPage(currPageNum);
@@ -189,4 +162,5 @@ public class GifController2 {
 		}
 		return  null;
 	}
+	
 }

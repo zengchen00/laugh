@@ -3,7 +3,9 @@
     <input id="serverPath" ajaxUrl="${pageContext.request.contextPath}" type="hidden">
 		<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="navbar-header">
+			<a style="text-decoration:none;" href="${pageContext.request.contextPath}/foreground/index.html">
 		  　  <img style="height:50px;" src="${pageContext.request.contextPath}/images/logo.png">
+		  </a>
 		  　</div>
 		  <div class="container">
 		    <div class="navbar-header">
@@ -17,8 +19,8 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li id="index"><a href="#">网站首页</a></li>
-		        <li id="gifIndex"><a href="#">搞笑gif图</a></li>
+		        <li id="index"><a href="${pageContext.request.contextPath}/foreground/index.html">网站首页</a></li>
+		        <li id="gifIndex"><a href="${pageContext.request.contextPath}/foreground/gifIndex.html?pageNum=1">搞笑gif图</a></li>
 		        <li id="jokeIndex"><a href="${pageContext.request.contextPath}/foreground/jokeIndex.html?pageNum=1">极品笑话</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">

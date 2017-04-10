@@ -15,6 +15,33 @@
 body{
 overflow-x:hidden;
 }
+.pop-book2{
+	float: left;
+	font-size: 14px;
+	line-height: 1.1;
+	margin: 0 0 2% 56.5px;
+	text-align: center;
+	width: 100px;}
+.pop-book2 img{
+	box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
+	display: block;
+	margin: 0 auto 1em;}
+.pop-book2 h2{
+	color: #985d3e;
+	font-weight:normal;
+	font-size:16px;
+	line-height:1.5em;
+	max-height: 3em;
+	overflow: hidden;}
+.pop-book2 span{
+	display: block;
+	color: #999;
+	font-size:14px;
+	line-height:1.5em;
+	min-height: 1.5em;
+	max-height: 3em;
+	overflow: hidden;
+	}
 	
 	.index-recommends{overflow:hidden;margin-bottom:15px}
 	.index-recommends dd{position:relative;float:left;width:244px;height:220px;margin-right:20px;border-radius:4px;overflow:hidden}

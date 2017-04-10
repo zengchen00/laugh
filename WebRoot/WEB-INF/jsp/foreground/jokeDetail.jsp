@@ -50,37 +50,17 @@
 		<div class="panel-body">
 		
 			<dl class="index-recommends">
-		      <dd class="">
-		        <a href="javascript: void(0);" data-href="http://baozoumanhua.com/channels/4333">
-		          <img alt=" 【老式暴走漫画】原始暴走画风与发生在身边的糗事，带给你几年前曾有的那份欢笑" src="http://wanzao2.b0.upaiyun.com/system/post_tile/home_recommended_baomen/icons/1238/original/4E96A6DA88F20E4996DABF9B2B2C74D0.jpg">
-		          <div class="index-recommend-title">
-		            <span> 【老式暴走漫画】原始暴走画风与发生在身边的糗事，带给你几年前曾有的那份欢笑</span>
-		          </div>
-		          <i class="badge "></i>
-				</a>      
+		      <c:forEach var="item" items="${articles}" varStatus="status">
+			      <dd class="">
+			        <a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id=${item.id}" >
+					   <img alt="${item.description}" src="http://localhost:8090/${item.imgUrl}">
+					   <div class="index-recommend-title">
+					        <span>【${item.description}】</span>
+					   </div>
+					   <i class="badge "></i>
+					</a>       
 				</dd>
-				
-				<dd class="">
-		        <a href="javascript: void(0);" data-href="http://baozoumanhua.com/channels/4333">
-		          <img alt=" 【老式暴走漫画】原始暴走画风与发生在身边的糗事，带给你几年前曾有的那份欢笑" src="http://wanzao2.b0.upaiyun.com/system/post_tile/home_recommended_baomen/icons/1238/original/4E96A6DA88F20E4996DABF9B2B2C74D0.jpg">
-		          <div class="index-recommend-title">
-		            <span> 【老式暴走漫画】原始暴走画风与发生在身边的糗事，带给你几年前曾有的那份欢笑</span>
-		          </div>
-		          <i class="badge "></i>
-				</a>      
-				</dd>
-				
-				<dd class="">
-		        <a href="javascript: void(0);" data-href="http://baozoumanhua.com/channels/4333">
-		          <img alt=" 【老式暴走漫画】原始暴走画风与发生在身边的糗事，带给你几年前曾有的那份欢笑" src="http://wanzao2.b0.upaiyun.com/system/post_tile/home_recommended_baomen/icons/1238/original/4E96A6DA88F20E4996DABF9B2B2C74D0.jpg">
-		          <div class="index-recommend-title">
-		            <span> 【老式暴走漫画】原始暴走画风与发生在身边的糗事，带给你几年前曾有的那份欢笑</span>
-		          </div>
-		          <i class="badge "></i>
-				</a>      
-				</dd>
-				
-				
+			 </c:forEach>
 	  		</dl>
   
 		</div>

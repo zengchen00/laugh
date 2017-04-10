@@ -7,8 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.zc.first.common.MyConstants;
+import cn.zc.first.common.Page;
 import cn.zc.first.po.Article;
+import cn.zc.first.po.ArticleVo;
+import cn.zc.first.po.Joke;
+import cn.zc.first.po.JokeVo;
 import cn.zc.first.service.ArticleService;
+import cn.zc.first.service.JokeService;
 
 @Controller
 @RequestMapping("/foreground")
@@ -17,12 +23,34 @@ public class IndexController {
 	@Autowired
 	private ArticleService articleServiceImpl;
 	
+	@Autowired
+	private JokeService jokeService;
+	
 	@RequestMapping("/index")
 	public ModelAndView addGif() throws Exception {
 		ModelAndView mv = new ModelAndView("foreground/index");
-		List<Article> articles = articleServiceImpl.selectForIndex();
-		mv.addObject("articles",articles);
+		//查gif最新 4 期
+		Page page = new Page();
+		page.setNumPerPage(MyConstants.INDEX_GIF_NUM);
+		page.setStartPage(0);
+		ArticleVo av = new ArticleVo();
+		av.setState(MyConstants.ARTICLE_STATE_ONLINE);
+		av.setPage(page);
+		av.setOrderBy("periods");
+		av.setOrderType("desc");
+		List<Article> articles = articleServiceImpl.selectCurrPage(av);
+		//查joke最新 2 期
+		JokeVo jokeVo = new JokeVo();
+		jokeVo.setState(MyConstants.JOKE_STATE_ONLINE);
+		jokeVo.setOrderBy("periods");
+		jokeVo.setOrderType("desc");
+		page.setNumPerPage(MyConstants.INDEX_JOKE_NUM);
+		jokeVo.setPage(page);
+		List<Joke> jokes = jokeService.selectCurrPage(jokeVo);
+		
 		mv.addObject("cur","1");
+		mv.addObject("articles",articles);
+		mv.addObject("jokes",jokes);
 		return mv;
 
 	}
@@ -41,26 +69,12 @@ public class IndexController {
 
 	}
 	
-//	@RequestMapping("/jokeIndex")
-//	public ModelAndView jokeIndex() throws Exception {
-//		ModelAndView mv = new ModelAndView("foreground/jokeIndex");
-//		return mv;
-//
-//	}
-	
 	@RequestMapping("/gifDetail2")
 	public ModelAndView gifDetail2() throws Exception {
 		ModelAndView mv = new ModelAndView("foreground/gifDetail2");
 		return mv;
 
 	}
-	
-//	@RequestMapping("/jokeDetail")
-//	public ModelAndView jokeDetail() throws Exception {
-//		ModelAndView mv = new ModelAndView("foreground/jokeDetail");
-//		return mv;
-//
-//	}
 	
 	@RequestMapping("/mobile")
 	public String mobile() throws Exception {
