@@ -19,12 +19,12 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li id="index"><a href="${pageContext.request.contextPath}/foreground/index.html">网站首页</a></li>
+		        <li id="index"><a href="${pageContext.request.contextPath}/foreground/index.html">首页</a></li>
 		        <li id="gifIndex"><a href="${pageContext.request.contextPath}/foreground/gifIndex.html?pageNum=1">搞笑gif图</a></li>
 		        <li id="jokeIndex"><a href="${pageContext.request.contextPath}/foreground/jokeIndex.html?pageNum=1">极品笑话</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
-		        <li id="aboutUs"><a href="#">关于我们</a></li>
+		        <li id="aboutUs"><a href="${pageContext.request.contextPath}/foreground/aboutUs.html">关于我们</a></li>
 		      </ul>
 		    </div>
 		  </div>

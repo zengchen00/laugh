@@ -21,7 +21,7 @@
   <div class="col-xs-12 col-md-8" style="padding: 0px 30px;">
 	  <div class="panel panel-info" >
 	  <div class="panel-heading">${joke.title}</div>
-	    <div class="panel-body">
+	    <div class="panel-body" style="background-color:#f6f6f1;">
 	    ${joke.content}
   		</div>
 	   <div class="panel-footer">

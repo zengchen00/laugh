@@ -21,7 +21,7 @@ public class MyConstants {
 	public static final int JOKE_STATE_READY = 1;//预上线
 	public static final int JOKE_STATE_ONLINE = 2;//上线
 	public static final int JOKE_STATE_DELETE = 3;//删除
-	public static final int JOKE_INDEX_NUM = 2;//笑话主页显示几篇笑话
+	public static final int JOKE_INDEX_NUM = 4;//笑话主页显示几篇笑话
 	public static final int JOKE_RINGKING = 12;//笑话排行榜显示几篇笑话
 	public static final int JOKE_DETAIL_GIF = 3;//笑话详情gif
 	

@@ -62,16 +62,10 @@ public class IndexController {
 
 	}
 	
-	@RequestMapping("/gifIndex2")
-	public ModelAndView gifIndex2() throws Exception {
-		ModelAndView mv = new ModelAndView("foreground/gifIndex2");
-		return mv;
-
-	}
-	
-	@RequestMapping("/gifDetail2")
-	public ModelAndView gifDetail2() throws Exception {
-		ModelAndView mv = new ModelAndView("foreground/gifDetail2");
+	@RequestMapping("/aboutUs")
+	public ModelAndView aboutUs() throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/aboutUs");
+		mv.addObject("cur","4");
 		return mv;
 
 	}

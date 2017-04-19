@@ -10,6 +10,7 @@
 <title>快乐站点</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/css.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/zcV0.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
@@ -57,6 +58,6 @@
 </div>
   <div class="col-xs-0 col-md-1"></div>
 </div>
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html>
