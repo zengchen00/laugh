@@ -76,6 +76,7 @@
 	</div>
   </div>
 </div>
+<jsp:include page="footer.jsp"/>
 
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/foreground/jokeIndex.js"></script>

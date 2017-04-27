@@ -12,4 +12,6 @@ public interface ArticleDetailMapper {
     List<ArticleDetail> selectCurrPage(ArticleDetailVo avo);
     
     int countNum(int articleId);
+    
+    ArticleDetail selectById(int id);
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.zc.first.mapper.ArticleDetailMapper" >
 	<insert id="insert" parameterType="articleDetail" >
-		insert into F_ARTICLE_DETAIL(DESCRIPTION,ARTICLE_ID,IMG_URL,CREATE_DATE,MODIFY_DATE)
+		insert into f_article_detail(DESCRIPTION,ARTICLE_ID,IMG_URL,CREATE_DATE,MODIFY_DATE)
 		 value(#{description},#{article.id},#{img_url},#{modifyDate},#{createDate})
 	</insert>
 	<!-- 查出当前页的记录 -->
@@ -14,4 +14,8 @@
 	<select id="countNum" resultType="int">
 		SELECT count(*) FROM f_article_detail where ARTICLE_ID = #{articleId};
 	</select>
+	
+	<select id="selectById"  resultType="articleDetail">
+ 		select * from f_article_detail where id = #{id}
+ 	</select>
 </mapper>

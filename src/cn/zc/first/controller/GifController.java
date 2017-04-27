@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
@@ -32,8 +32,6 @@ import cn.zc.first.common.PropertiesUtil;
 import cn.zc.first.po.Article;
 import cn.zc.first.po.ArticleDetail;
 import cn.zc.first.po.ArticleVo;
-import cn.zc.first.po.Joke;
-import cn.zc.first.po.JokeVo;
 import cn.zc.first.po.User;
 import cn.zc.first.service.ArticleDetailService;
 import cn.zc.first.service.ArticleService;
@@ -41,6 +39,8 @@ import cn.zc.first.service.ArticleService;
 @Controller
 @RequestMapping("/background")
 public class GifController extends BaseController{
+	
+	Logger logger = Logger.getLogger(GifController.class);
 	
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
@@ -207,22 +207,21 @@ public class GifController extends BaseController{
 	@RequestMapping(value="/doAddGifs", method=RequestMethod.POST)
     public ModelAndView uploadFiles(HttpServletRequest request, @RequestParam("periods") String periods,
     		@RequestParam("title") String title) throws Exception {  
+		logger.info("upload images start...");
         ModelAndView mav = new ModelAndView("success");  
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;  
         MultiValueMap<String, MultipartFile> multiValueMap = multipartRequest.getMultiFileMap();  
         List<MultipartFile> file = multiValueMap.get("clientFile");
         Map<String, String[]> map =  multipartRequest.getParameterMap();
         String[] descs = (String[]) map.get("fileDes");//每张图片的描述文字
-        
+        logger.info("file.size():"+file.size());
         if(file.size()>0 && (descs.length ==file.size())){
         	User currentUser = (User) request.getSession().getAttribute("currentUser");
         	//保存gif文章
         	MultipartFile multipartFile = file.get(0);
         	String filePath = SaveFileFromInputStream(multipartFile,multipartFile.getInputStream(),multipartFile.getOriginalFilename());//封面图片
-//        	String fileDesc = descs[0];//封面图片描述
-//        	int indexNum = articleServiceImpl.selectMaxIndex() + 1;
         	Article article = saveGifArticle(currentUser,filePath,title,Integer.parseInt(periods));
-        	
+        	logger.info("gif文章保存成功");
         	//保存gif文章详情数据
         	for (int i = 0; i < file.size(); i++) {
         		MultipartFile multipartFileEach = file.get(i);
@@ -231,7 +230,6 @@ public class GifController extends BaseController{
 					String filePathEach = SaveFileFromInputStream(multipartFileEach,multipartFileEach.getInputStream(),multipartFileEach.getOriginalFilename());
 					String fileDescEach = descs[i];//图片描述
 					saveGifArticleDetail(article,filePathEach,fileDescEach);
-					
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -286,12 +284,19 @@ public class GifController extends BaseController{
 	 * @return
 	 * @throws IOException
 	 */
-	public String SaveFileFromInputStream(MultipartFile multipartFile ,InputStream stream,String fileName) throws IOException{      
-		   String newFileName = commonFunctions.getCurrentTimeStr() + "_" + fileName;
-	       String path = PropertiesUtil.getValue("gifServerPath") + File.separator 
-	    		   + newFileName;
-	       File newImage = new File(path);
-	       multipartFile.transferTo(newImage);
-	       return newFileName;
-	}       
+	public String SaveFileFromInputStream(MultipartFile multipartFile, InputStream stream, String fileName)
+			throws IOException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd/");
+		Long systemss = System.currentTimeMillis();
+		String newFileName = systemss + ".gif";
+		String path = PropertiesUtil.getValue("gifServerPath") + File.separator
+				+ sdf.format(systemss) + File.separator + newFileName;
+		logger.info("path:" + path);
+		File newImage = new File(path);
+		if(!newImage.getParentFile().exists()){
+			newImage.getParentFile().mkdirs();
+		}
+		multipartFile.transferTo(newImage);
+		return sdf.format(systemss) + File.separator + newFileName;
+	}    
 }

@@ -43,7 +43,7 @@ function getOthers(pageNum){
 	        }
 			innerHtml = innerHtml + '<h4>'+(i+1)+'.'+item.description+'</h4></dt>';
 			innerHtml = innerHtml + '<dd style="margin-top: 20px;text-align: center;">';
-			innerHtml = innerHtml + '<img style="max-height: 400px;max-width: 21rem;min-height: 250px;min-width: 18rem;" src="http://localhost:8090/'+item.img_url+'" >';
+			innerHtml = innerHtml + '<img style="max-height: 400px;max-width: 21rem;min-height: 250px;min-width: 18rem;" src="http://localhost:8090//'+item.img_url+'" >';
 			innerHtml = innerHtml + '</dd>';
 		}
 		$("#dlMian").html(innerHtml);

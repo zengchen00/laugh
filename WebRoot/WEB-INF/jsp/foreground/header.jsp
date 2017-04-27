@@ -29,7 +29,7 @@
 		    </div>
 		  </div>
 		</nav>
-		<div style="height:5rem;"></div>
+		<div style="height:8rem;"></div>
 	<script type="text/javascript">
 	var cur = ${cur};
 	if("1"==cur){

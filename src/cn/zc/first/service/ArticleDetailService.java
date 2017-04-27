@@ -11,4 +11,6 @@ public interface ArticleDetailService {
 	public List<ArticleDetail> selectCurrPage(ArticleDetailVo articleDetailVo);
 	
 	public int countNum(int articleId);
+	
+	public  ArticleDetail selectById(int id);
 }

@@ -46,6 +46,26 @@ public class GifController2 {
 	@Autowired
 	private CommentService commentService;
 	
+	@RequestMapping("/gifDetailTest")
+	public ModelAndView gifDetailTest() throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/gifDetailTest");
+		return mv;
+	}
+	
+	@RequestMapping(value="/getGif" ,produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String getGif(HttpServletRequest request,@RequestBody Map<String, String> map) throws Exception {
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		if(map.containsKey("id")){
+			int id=Integer.parseInt(map.get("id"));
+			ArticleDetail articleDetail = articleDetailServiceImpl.selectById(id);
+			resultMap.put("url", articleDetail.getImg_url());
+			JSONObject  json = JSONObject .fromObject(resultMap);
+			return  json.toString();
+		}
+		return  null;
+	}
+	
 	@RequestMapping("/gifIndex")
 	public ModelAndView gifIndex(String pageNum) throws Exception {
 		if(pageNum == null || !NumberUtils.isNumber(pageNum)){

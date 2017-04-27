@@ -16,7 +16,7 @@
 	<div class="row" style="margin-top: 4rem;">
 		<jsp:include page="../left.jsp"/>
 		<div class="col-md-9">
-			<form method="post" action="${pageContext.request.contextPath}/background/doAddGifs.html" enctype="multipart/form-data">
+			<form  id="gifForm" method="post" action="${pageContext.request.contextPath}/background/doAddGifs.html" enctype="multipart/form-data">
 			  <table id="table" class="table table-striped table-condensed">
 			  <tr>
 			    	<td style="text-align:center;vertical-align:middle;">
@@ -95,7 +95,7 @@
 			    	</td>
 			    </tr>
 			  </table>
-				<input type="submit" value="上传文件 "/>  
+				<input id="formButton" type="button" value="上传文件 "/>  
 			</form>
 		</div>
 	</div>
@@ -122,6 +122,32 @@ $(function(){
 	$("button[name='delRow']").click(function(){
     	$(this).parent().parent().remove();
     	getTotalNum();
+	});
+	$("#formButton").click(function(){
+		var flag = true;
+		console.log($("input[name='clientFile']").length);
+		$("input[name='clientFile']").each(function(){
+			if($(this).val().trim() == ""){
+				flag = false;
+			}
+		 });
+		$("input[name='fileDes']").each(function(){
+			if($(this).val().trim() == ""){
+				flag = false;
+			}
+		 });
+		if($("#periods").val()==""){
+			flag = false;
+		}
+		if($("#title").val()==""){
+			flag = false;
+		}
+		if(flag){
+			$("#gifForm").submit();
+		}else{
+			alert("有空项");
+		}
+		
 	});
 });
 

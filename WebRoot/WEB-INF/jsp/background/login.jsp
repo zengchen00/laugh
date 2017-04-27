@@ -85,8 +85,11 @@ $(function(){
 				$("#passwordError").text("用户名或者密码错误");
 			}
 			
-		},function(){
-			$("#passwordError").text("请求后台失败");
+		},function(data){
+			if(data=="0000"){
+				window.location = retUrl;
+			}
+// 			$("#passwordError").text("请求后台失败");
 		});
 	});
 	$("#username,#password").focus(function(){

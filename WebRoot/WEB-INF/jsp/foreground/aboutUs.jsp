@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>快乐站点</title>
+<title>快乐</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -134,10 +134,9 @@ height:200px;
 						<h3>小手好冰凉</h3>
 						<h4>开发，运维</h4>
 						<p style="line-height: 1.6;font-size: 16px;">
-							我是一个程序员，很早就想做一个自己的网站，直到现在才诞生了这个网站，网站的主题的构想、页面的设计、
-							页面样式编辑、后台程序的编写、数据库的设计、域名的购买、服务器的租赁，直到网站运行环境的配置安装，
-							网站建设的每一步都是难关，毕竟我只会写后台代码，但是不放弃，每天做一点，网站迟早会建成的，
-							不积跬步无以至千里，不积小流无以成江海！
+							我是一个程序员，很早就想做一个自己的网站，直到现在才诞生了这个网站；我没有专业的设计，所以网站样式可能会有点难看，
+							我没有专业的运维，所以网站加载速度也可能不如您意，我也没有专业的运营，网站内容也可能不合您的口味.....
+							但是欢迎您想我提出您的建议和您对本网站的优化想法，我会把您的想法变成真的，我是程序员，我喂自己袋盐！
 						</p>
 					</div>
 					<div class="col-md-4">
@@ -185,7 +184,7 @@ height:200px;
 									</p>
 								</div>
 								<div class="col-md-4 choose-grid">
-									<h4>3. faucibus risus</h4>
+									<h4>3. 下面邮箱是真的</h4>
 									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing ellente ssed 
 									dololiquam congu fermentum nisl. Mauris asan nulla vel diam. Sed in
 									 lacus ut enim adipiscing aliquetulla venenat pede mi, aliquet sit 
@@ -224,6 +223,6 @@ height:200px;
 </div>
   <div class="col-xs-0 col-md-1"></div>
 </div>
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

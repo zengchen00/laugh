@@ -37,7 +37,7 @@ function getAjax(pageNum){
 			innerHtml = innerHtml + '<div style="margin-top: 50px;"><dl>';
 			innerHtml = innerHtml + '<dt>'+(startIndex + i)+'.'+item.description+'</dt>';
 			innerHtml = innerHtml + '<dd style="margin-top: 10px;">';
-			innerHtml = innerHtml + '<img style="max-height: 400px;max-width: 400px;min-height: 250px;min-width: 300px;" src="http://localhost:8090/'+item.img_url+'" >';
+			innerHtml = innerHtml + '<img style="max-height: 400px;max-width: 400px;min-height: 250px;min-width: 300px;" src="http://localhost:8090//'+item.img_url+'" >';
 			innerHtml = innerHtml + '</dd></dl></div>';
 		}
 		$("#listbox").html(innerHtml);

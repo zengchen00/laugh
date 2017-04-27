@@ -93,6 +93,9 @@
 		<property name="maxUploadSize">
 			<value>52428800</value>
 		</property>
+		 <property name="maxInMemorySize">  
+            <value>52428800</value>  
+        </property> 
 	</bean>
 	
 <mvc:interceptors>

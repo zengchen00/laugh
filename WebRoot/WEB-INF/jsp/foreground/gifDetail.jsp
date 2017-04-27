@@ -35,7 +35,7 @@
                    	<h4>${status.index + 1}.${item.description}</h4> 
                     </dt>
                 	<dd style="margin-top: 20px;text-align: center;">
-	                    <img style="max-height: 400px;max-width: 21rem;min-height: 250px;min-width: 18rem;" src="http://localhost:8090/${item.img_url}">
+	                    <img style="max-height: 400px;max-width: 21rem;min-height: 250px;min-width: 18rem;" src="http://localhost:8090//${item.img_url}">
                 	</dd>
                 </c:forEach>
             	</dl>
@@ -83,7 +83,7 @@
 			<c:forEach var="item" items="${articleRanking}" varStatus="status">
 		      <dd class="">
 		        <a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id=${item.id}">
-		          <img alt="${item.description}" src="http://localhost:8090/${item.imgUrl}">
+		          <img alt="${item.description}" src="http://localhost:8090//${item.imgUrl}">
 		          <div class="index-recommend-title">
 		            <span>【${item.description}】</span>
 		          </div>
@@ -98,6 +98,7 @@
 	</div>
   </div>
 </div>
+<jsp:include page="footer.jsp"/>
 
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/foreground/gifDetail.js"></script>

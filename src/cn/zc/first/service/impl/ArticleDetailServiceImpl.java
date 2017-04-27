@@ -29,4 +29,9 @@ public class ArticleDetailServiceImpl implements ArticleDetailService {
 		return articleDetailMapper.countNum(articleId);
 	}
 
+	@Override
+	public ArticleDetail selectById(int id) {
+		return articleDetailMapper.selectById(id);
+	}
+
 }

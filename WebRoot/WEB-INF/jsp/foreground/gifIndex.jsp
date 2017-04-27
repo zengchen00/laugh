@@ -25,7 +25,7 @@
 		  <c:forEach var="item" items="${articles}" varStatus="status">
 		      <dd class="">
 		        <a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id=${item.id}" >
-		          <img alt="${item.description}" src="http://localhost:8090/${item.imgUrl}">
+		          <img alt="${item.description}" src="http://localhost:8090//${item.imgUrl}">
 		          <div class="index-recommend-title">
 		            <span>【${item.description}】</span>
 		          </div>
@@ -79,6 +79,7 @@
 	</div>
   </div>
 </div>
+<jsp:include page="footer.jsp"/>
 
 </body>
 </html>
