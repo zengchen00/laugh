@@ -51,6 +51,7 @@
 			    	<td>
 			    		<span style="width:10%;">图片描述：</span>
 			    		<input id="" name="fileDes" class="form-control" type="text" style="display: inline;width:90%;">
+			    		<input id="" name="desFile" class="file mt10" type="file">
 			    		<input id="" name="clientFile" class="file mt10" type="file">
 			    	</td>
 			    </tr>
@@ -61,6 +62,7 @@
 			    	<td>
 			    		<span style="width:10%;">图片描述：</span>
 			    		<input id="" name="fileDes" class="form-control" type="text" style="display: inline;width:90%;">
+			    		<input id="" name="desFile" class="file mt10" type="file">
 			    		<input id="" name="clientFile" class="file mt10" type="file">
 			    	</td>
 			    </tr>
@@ -71,6 +73,7 @@
 			    	<td>
 			    		<span style="width:10%;">图片描述：</span>
 			    		<input id="" name="fileDes" class="form-control" type="text" style="display: inline;width:90%;">
+			    		<input id="" name="desFile" class="file mt10" type="file">
 			    		<input id="" name="clientFile" class="file mt10" type="file">
 			    	</td>
 			    </tr>
@@ -81,6 +84,7 @@
 			    	<td>
 			    		<span style="width:10%;">图片描述：</span>
 			    		<input id="" name="fileDes" class="form-control" type="text" style="display: inline;width:90%;">
+			    		<input id="" name="desFile" class="file mt10" type="file">
 			    		<input id="" name="clientFile" class="file mt10" type="file">
 			    	</td>
 			    </tr>
@@ -91,6 +95,7 @@
 			    	<td>
 			    		<span style="width:10%;">图片描述：</span>
 			    		<input id="" name="fileDes" class="form-control" type="text" style="display: inline;width:90%;">
+			    		<input id="" name="desFile" class="file mt10" type="file">
 			    		<input id="" name="clientFile" class="file mt10" type="file">
 			    	</td>
 			    </tr>
@@ -110,6 +115,7 @@ $(function(){
 		tdStr = tdStr + '<button name="delRow" type="button" class="btn btn-warning">删除行</button>';
 		tdStr = tdStr + '</td><td><span style="width:10%;">图片描述：</span>';
 		tdStr = tdStr + '<input id="" name="fileDes" class="form-control" type="text" style="display: inline;width:90%;">';
+		tdStr = tdStr + '<input id="" name="desFile" class="file mt10" type="file">';
 		tdStr = tdStr + '<input id="" name="clientFile" class="file mt10" type="file"></td></tr>';
 		table.append(tdStr);
 		getTotalNum();
@@ -125,8 +131,12 @@ $(function(){
 	});
 	$("#formButton").click(function(){
 		var flag = true;
-		console.log($("input[name='clientFile']").length);
 		$("input[name='clientFile']").each(function(){
+			if($(this).val().trim() == ""){
+				flag = false;
+			}
+		 });
+		$("input[name='desFile']").each(function(){
 			if($(this).val().trim() == ""){
 				flag = false;
 			}

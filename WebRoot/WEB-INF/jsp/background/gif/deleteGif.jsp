@@ -33,7 +33,7 @@
 			<div class="col-md-9">
 				<div class="pagecontent">
 				<p>
-					<button onclick="changeState()" class="btn btn-white btn-info btn-bold">
+					<button onclick="preview()" class="btn btn-white btn-info btn-bold">
 						<i class="ace-icon fa fa-eye bigger-120 blue"></i>
 						预览
 						</button>

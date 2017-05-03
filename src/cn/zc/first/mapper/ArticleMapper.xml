@@ -25,19 +25,20 @@
 		 	<id column="b_id" property="id"/>
 		 	<result column="b_DESCRIPTION" property="description"/>
 		 	<result column="b_url" property="img_url"/>
+		 	<result column="b_url_des" property="img_url_des"/>
 		 	<result column="b_cd" property="createDate"/>
 		 	<result column="b_md" property="modifyDate"/>
 		 </collection>
 	</resultMap>
 	
 	<select id="selectArticleByStatus" parameterType="int" resultMap="article_articleDetail">
-			SELECT a.*,b.ID b_id,b.CREATE_DATE b_cd,b.DESCRIPTION b_DESCRIPTION,b.IMG_URL b_url,b.MODIFY_DATE b_md 
+			SELECT a.*,b.ID b_id,b.CREATE_DATE b_cd,b.DESCRIPTION b_DESCRIPTION,b.IMG_URL b_url,b.IMG_URL_DES b_url_des,b.MODIFY_DATE b_md 
 				from f_article a,f_article_detail b WHERE a.ID = b.ARTICLE_ID 
 					AND a.STATE = #{status}
 	</select>
 	
 	<select id="selectArticleById" parameterType="int" resultMap="article_articleDetail">
-			SELECT a.*,b.ID b_id,b.CREATE_DATE b_cd,b.DESCRIPTION b_DESCRIPTION,b.IMG_URL b_url,b.MODIFY_DATE b_md 
+			SELECT a.*,b.ID b_id,b.CREATE_DATE b_cd,b.DESCRIPTION b_DESCRIPTION,b.IMG_URL b_url,b.IMG_URL_DES b_url_des,b.MODIFY_DATE b_md 
 				from f_article a,f_article_detail b WHERE a.ID = b.ARTICLE_ID 
 					AND a.ID = #{id}
 	</select>

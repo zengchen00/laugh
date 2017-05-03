@@ -1,3 +1,13 @@
+var preview = function(){
+	var selectedIds = $("#grid-table").jqGrid("getGridParam", "selarrrow"); //返回选中多行ids
+	if(selectedIds.length != 1){
+		alert("请选择一条记录");
+		return;
+	}
+	var url = $("#serverPath").attr("ajaxUrl")+ "/background/jokePreview.html?id="+selectedIds[0];
+	window.open(url,"_blank");
+}
+
 var changeState = function(state){
 	var url = $("#serverPath").attr("ajaxUrl")+ "/background/doJokeState.html";
 	var selectedIds = $("#grid-table").jqGrid("getGridParam", "selarrrow"); //返回选中多行ids

@@ -32,7 +32,7 @@
 						<dd style="margin-top: 20px;text-align: center;">
 						 <a id="a_${item.id}"  style="cursor: pointer;text-decoration:none" href="javascript:void(0);">
 		                    <img id="img_${item.id}" style="max-height: 400px;max-width: 21rem;min-height: 250px;min-width: 18rem;" src="http://118.89.143.115:8090//${item.img_url}">
-		                    <div name="playSpan" id="span_${item.id}" class="vcenter" style="opacity:0.01;">play</div>
+		                    <div id="span_${item.id}" class="vcenter" style="opacity:0.01;">play</div>
 	                    </a>
 					</c:if>
 					<c:if test="${status.index != 0}">
@@ -41,7 +41,7 @@
 	                	<dd style="margin-top: 20px;text-align: center;">
 	                    <a id="a_${item.id}"  style="cursor: pointer;text-decoration:none" href="javascript:void(0);" onclick="getGif(${item.id})">
 		                    <img id="img_${item.id}" style="max-height: 400px;max-width: 21rem;min-height: 250px;min-width: 18rem;" src="http://118.89.143.115:8090//${item.img_url_des}">
-		                    <div name="playSpan" id="span_${item.id}" class="vcenter">play</div>
+		                    <div id="span_${item.id}" class="vcenter">play</div>
 	                    </a>
 	                </c:if>
 	                </dd>
@@ -84,27 +84,7 @@
 
 </div>
   <div class="col-xs-12 col-md-3">
-	 <div class="panel panel-info" style="margin-right: 30px;">
-		<div class="panel-heading" style="text-align: center;">热情推荐</div>
-		<div class="panel-body">
-		
-			<dl class="index-recommends">
-			<c:forEach var="item" items="${articleRanking}" varStatus="status">
-		      <dd class="">
-		        <a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id=${item.id}">
-		          <img alt="${item.description}" src="http://118.89.143.115:8090//${item.imgUrl}">
-		          <div class="index-recommend-title">
-		            <span>【${item.description}】</span>
-		          </div>
-		          <i class="badge "></i>
-				</a>      
-				</dd>
-				</c:forEach>
-				
-	  		</dl>
-  
-		</div>
-	</div>
+	
   </div>
 </div>
 <jsp:include page="footer.jsp"/>

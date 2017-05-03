@@ -2,7 +2,6 @@ package cn.zc.first.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.lang.NumberUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +31,7 @@ import cn.zc.first.common.Page;
 import cn.zc.first.common.PropertiesUtil;
 import cn.zc.first.po.Article;
 import cn.zc.first.po.ArticleDetail;
+import cn.zc.first.po.ArticleDetailVo;
 import cn.zc.first.po.ArticleVo;
 import cn.zc.first.po.User;
 import cn.zc.first.service.ArticleDetailService;
@@ -128,6 +129,58 @@ public class GifController extends BaseController{
 		return  json.toString();
 	}
 	
+	@RequestMapping("/gifPreview")
+	public ModelAndView gifPreview(HttpServletRequest request,
+			String id) throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/gifPreview");
+		if(id == null || !NumberUtils.isNumber(id)){
+			mv.setViewName("redirect:/foreground/gifIndex");
+			return mv;
+		}
+		Page page = new Page();
+		Article article = articleServiceImpl.selectArticleById(Integer.valueOf(id));
+		if(article == null){
+			mv.setViewName("redirect:/foreground/gifIndex");
+			return mv;
+		}
+		//查询详情
+		int totalRecord = article.getArticleDetails().size();
+		page.setTotalRecord(totalRecord);
+		page.setNumPerPage(MyConstants.GIF_DETAIL_PER);
+		page.setCurrPage(1);
+		page.init();
+		ArticleDetailVo av = new ArticleDetailVo();
+		av.setArticleId(Integer.parseInt(id));
+		av.setPage(page);
+		List<ArticleDetail> articleDetails = articleDetailServiceImpl.selectCurrPage(av);
+		
+		//更新查看次数
+		ArticleVo articleVo = new ArticleVo();
+		articleVo.setId(Integer.valueOf(id));
+		articleVo.setOpen(article.getOpen()+1);
+		articleServiceImpl.updateArticleOpens(articleVo);
+		
+		//查出热情推荐
+		articleVo = new ArticleVo();
+		articleVo.setState(MyConstants.ARTICLE_STATE_ONLINE);
+		articleVo.setOrderBy("open");
+		articleVo.setOrderType("asc");
+		page.setNumPerPage(MyConstants.GIF_DETAIL_SHOW);
+		page.setStartPage(0);
+		articleVo.setPage(page);
+		List<Article> articleRanking = articleServiceImpl.selectCurrPage(articleVo);
+		
+		
+		
+		//向页面传值
+		mv.addObject("page",page);
+		mv.addObject("articleId",id);
+		mv.addObject("cur","2");
+		mv.addObject("articleDetails",articleDetails);
+		mv.addObject("articleRanking",articleRanking);
+		return mv;
+	}
+	
 	@RequestMapping("/deleteGif")
 	public ModelAndView deleteGif() throws Exception {
 		ModelAndView mv = new ModelAndView("background/gif/deleteGif");
@@ -211,25 +264,28 @@ public class GifController extends BaseController{
         ModelAndView mav = new ModelAndView("success");  
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;  
         MultiValueMap<String, MultipartFile> multiValueMap = multipartRequest.getMultiFileMap();  
+        List<MultipartFile> desfile = multiValueMap.get("desFile");
         List<MultipartFile> file = multiValueMap.get("clientFile");
         Map<String, String[]> map =  multipartRequest.getParameterMap();
         String[] descs = (String[]) map.get("fileDes");//每张图片的描述文字
-        logger.info("file.size():"+file.size());
-        if(file.size()>0 && (descs.length ==file.size())){
+        logger.info("desfile.size():"+file.size());
+        if(desfile.size()>0 && (descs.length ==desfile.size())){
         	User currentUser = (User) request.getSession().getAttribute("currentUser");
         	//保存gif文章
-        	MultipartFile multipartFile = file.get(0);
-        	String filePath = SaveFileFromInputStream(multipartFile,multipartFile.getInputStream(),multipartFile.getOriginalFilename());//封面图片
+        	MultipartFile multipartFile = desfile.get(0);
+        	String filePath = SaveFileFromInputStream(multipartFile,".jpg");//封面图片
         	Article article = saveGifArticle(currentUser,filePath,title,Integer.parseInt(periods));
         	logger.info("gif文章保存成功");
         	//保存gif文章详情数据
         	for (int i = 0; i < file.size(); i++) {
-        		MultipartFile multipartFileEach = file.get(i);
+        		MultipartFile multipartFileEach1 = desfile.get(i);
+        		MultipartFile multipartFileEach2 = file.get(i);
         		try {
         			//上传文件到服务器并返回文件全路径
-					String filePathEach = SaveFileFromInputStream(multipartFileEach,multipartFileEach.getInputStream(),multipartFileEach.getOriginalFilename());
+					String filePathdes = SaveFileFromInputStream(multipartFileEach1,".jpg");
+					String filePathEach = SaveFileFromInputStream(multipartFileEach2,".gif");
 					String fileDescEach = descs[i];//图片描述
-					saveGifArticleDetail(article,filePathEach,fileDescEach);
+					saveGifArticleDetail(article,filePathEach,fileDescEach,filePathdes);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -246,8 +302,8 @@ public class GifController extends BaseController{
 	 * @param filePath
 	 * @param fileDesc
 	 */
-	private void saveGifArticleDetail(Article article, String filePath, String fileDesc) {
-		ArticleDetail articleDetail = new ArticleDetail(article,fileDesc,filePath);
+	private void saveGifArticleDetail(Article article, String filePath, String fileDesc,String filePathdes) {
+		ArticleDetail articleDetail = new ArticleDetail(article,fileDesc,filePath,filePathdes);
 		articleDetailServiceImpl.insert(articleDetail);
 	}
 
@@ -284,11 +340,11 @@ public class GifController extends BaseController{
 	 * @return
 	 * @throws IOException
 	 */
-	public String SaveFileFromInputStream(MultipartFile multipartFile, InputStream stream, String fileName)
+	public String SaveFileFromInputStream(MultipartFile multipartFile,String stuff)
 			throws IOException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd/");
 		Long systemss = System.currentTimeMillis();
-		String newFileName = systemss + ".gif";
+		String newFileName = systemss + stuff;
 		String path = PropertiesUtil.getValue("gifServerPath") + File.separator
 				+ sdf.format(systemss) + File.separator + newFileName;
 		logger.info("path:" + path);

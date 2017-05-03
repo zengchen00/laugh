@@ -10,7 +10,7 @@ public class MyConstants {
 	
 	
 	public static final int GIF_NUM_PER = 6;//gif每页多少条数据
-	public static final int GIF_DETAIL_PER = 1;//gif详情每页多少照片
+	public static final int GIF_DETAIL_PER = 5;//gif详情每页多少照片
 	public static final int GIF_DETAIL_SHOW = 7;//gif详情每页随机推荐
 	public static final int ARTICLE_RINGKING = 10;//GIF点击排行榜显示数量
 	

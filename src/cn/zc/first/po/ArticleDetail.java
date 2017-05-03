@@ -11,6 +11,7 @@ public class ArticleDetail implements Serializable {
 	private String description;
 	private Article article;
 	private String img_url;
+	private String img_url_des;
 	private Date createDate;
 	private Date modifyDate;
 	
@@ -18,10 +19,11 @@ public class ArticleDetail implements Serializable {
 		
 	}
 	
-	public ArticleDetail(Article article,String decription,String img_url){
+	public ArticleDetail(Article article,String decription,String img_url,String img_url_des){
 		this.article = article;
 		this.description=decription;
 		this.img_url=img_url;
+		this.img_url_des=img_url_des;
 		this.createDate=new Date();
 		this.modifyDate=new Date();
 	}
@@ -62,4 +64,20 @@ public class ArticleDetail implements Serializable {
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
+
+	public String getImg_url_des() {
+		return img_url_des;
+	}
+
+	public void setImg_url_des(String img_url_des) {
+		this.img_url_des = img_url_des;
+	}
+
+	@Override
+	public String toString() {
+		return "ArticleDetail [id=" + id + ", description=" + description + ", article=" + article + ", img_url="
+				+ img_url + ", img_url_des=" + img_url_des + ", createDate=" + createDate + ", modifyDate="
+				+ modifyDate + "]";
+	}
+
 }

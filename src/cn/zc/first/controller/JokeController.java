@@ -2,7 +2,6 @@ package cn.zc.first.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.lang.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.zc.first.common.CommonFunctions;
 import cn.zc.first.common.MyConstants;
 import cn.zc.first.common.Page;
+import cn.zc.first.po.Article;
+import cn.zc.first.po.ArticleVo;
 import cn.zc.first.po.Joke;
 import cn.zc.first.po.JokeVo;
 import cn.zc.first.po.User;
@@ -39,6 +41,24 @@ public class JokeController extends BaseController{
 	
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
+	@RequestMapping("/jokePreview")
+	public ModelAndView jokePreview(HttpServletRequest request,
+			String id) throws Exception {
+		ModelAndView mv = new ModelAndView("foreground/jokePreview");
+		if(id == null || !NumberUtils.isNumber(id)){
+			mv.setViewName("redirect:/foreground/jokeIndex");
+			return mv;
+		}
+		//本篇
+		JokeVo jokeVo = new JokeVo();
+		jokeVo.setId(Integer.parseInt(id));
+		Joke joke = jokeService.queryJokeById(jokeVo);
+		
+				
+		mv.addObject("cur","3");
+		mv.addObject("joke",joke);
+		return mv;
+	}
 	/**
 	 * 更改笑话状态
 	 * @param map

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>快乐</title>
+<title>梨花网</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -146,13 +146,13 @@ height:200px;
 						<p style="line-height: 1.6;font-size: 16px;">
 							别看本汪牙齿稀疏，胡子残缺，但是本汪学富五车，天文地理无所不知，数术药理
 							无不精通，说是有经天纬地之才也不为过，但是万丈高楼平地而起，一屋不扫何以扫天下，
-							这个网站的运营不做好怎能拯救世界？欢迎大家给本汪提意见，有好笑的笑话，图片也可以提供给我，
+							这个网站的运营不做好怎能拯救世界？欢迎大家给本汪提意见，有好笑的笑话，图片也可以提供给我，发送到下面的油箱
 							本汪会发布在这个网站。
 						</p>
 					</div>
 					<div class="col-md-4">
-					<img src="../images/wx.png" alt="可怜小编" class="img-responsive ss">
-						<h3>微信群</h3>
+					<img src="../images/qqq.png" alt="可怜小编" class="img-responsive ss">
+						<h3>QQ群</h3>
 						<h4>笑友</h4>
 						<p style="line-height: 1.6;font-size: 16px;">
 							加入我们，每天分享搞笑图片，传播快乐，第一时间了解网站最新资讯。
@@ -185,10 +185,7 @@ height:200px;
 								</div>
 								<div class="col-md-4 choose-grid">
 									<h4>3. 下面邮箱是真的</h4>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing ellente ssed 
-									dololiquam congu fermentum nisl. Mauris asan nulla vel diam. Sed in
-									 lacus ut enim adipiscing aliquetulla venenat pede mi, aliquet sit 
-									 amet, euismod in, auctor ut.</p>
+									<p></p>
 								</div>
 							</div>
 							<div class="clearfix"></div>

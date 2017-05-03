@@ -78,19 +78,31 @@ $(function(){
 		var reqUrl="${pageContext.request.contextPath}/background/doLogin.html";
 		var retUrl="${pageContext.request.contextPath}/background/index.html";
 			//表单验证通过后,触发的提交
-		ajaxFormSubmitPost(reqUrl,"loginForm",function(data,XMLHttpRequest){
-			if(data=="0000"){
+// 		ajaxFormSubmitPost(reqUrl,"loginForm",function(data,XMLHttpRequest){
+// 			if(data=="0000"){
+// 				window.location = retUrl;
+// 			}else{
+// 				$("#passwordError").text("用户名或者密码错误");
+// 			}
+			
+// 		},function(data){
+// 			if(data=="0000"){
+// 				window.location = retUrl;
+// 			}
+// 			$("#passwordError").text("请求后台失败");
+// 		});
+			
+		var data = new jsonData();
+		data.put("username",$("#username").val().trim());
+		data.put("password",$("#password").val().trim());
+		var dataJson = data.toJson();
+		myAjax(reqUrl,dataJson,function(data){
+			if(data.success){
 				window.location = retUrl;
 			}else{
-				$("#passwordError").text("用户名或者密码错误");
+				$("#passwordError").text(data.msg);
 			}
-			
-		},function(data){
-			if(data=="0000"){
-				window.location = retUrl;
-			}
-// 			$("#passwordError").text("请求后台失败");
-		});
+		},function(){},function(){},true);
 	});
 	$("#username,#password").focus(function(){
 		$("#passwordError").text("");

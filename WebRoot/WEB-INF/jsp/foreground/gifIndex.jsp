@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>快乐站点</title>
+<title>梨花网</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/css.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
@@ -25,7 +25,7 @@
 		  <c:forEach var="item" items="${articles}" varStatus="status">
 		      <dd class="">
 		        <a href="${pageContext.request.contextPath}/foreground/gifDetail.html?id=${item.id}" >
-		          <img alt="${item.description}" src="http://localhost:8090//${item.imgUrl}">
+		          <img alt="${item.description}" src="http://118.89.143.115:8090//${item.imgUrl}">
 		          <div class="index-recommend-title">
 		            <span>【${item.description}】</span>
 		          </div>

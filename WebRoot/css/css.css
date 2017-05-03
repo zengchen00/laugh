@@ -19,3 +19,12 @@ body{
 .cfbox ul li a{ padding-left:5px;}
 
 .pagination>li{display:inline;cursor: pointer;}
+
+.vcenter {
+	position:relative;
+	top:-13.5rem;
+	translateX(-50%);
+	translateY(-50%);
+	color:white;
+	font-size: 30px;
+}

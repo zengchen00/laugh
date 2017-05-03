@@ -1,6 +1,5 @@
 package cn.zc.first.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,8 +23,6 @@ import cn.zc.first.po.Article;
 import cn.zc.first.po.ArticleDetail;
 import cn.zc.first.po.ArticleDetailVo;
 import cn.zc.first.po.ArticleVo;
-import cn.zc.first.po.Comment;
-import cn.zc.first.po.CommentVo;
 import cn.zc.first.service.ArticleDetailService;
 import cn.zc.first.service.ArticleService;
 import cn.zc.first.service.CommentService;
@@ -46,11 +43,6 @@ public class GifController2 {
 	@Autowired
 	private CommentService commentService;
 	
-	@RequestMapping("/gifDetailTest")
-	public ModelAndView gifDetailTest() throws Exception {
-		ModelAndView mv = new ModelAndView("foreground/gifDetailTest");
-		return mv;
-	}
 	
 	@RequestMapping(value="/getGif" ,produces = "text/html;charset=UTF-8")
 	@ResponseBody
@@ -127,14 +119,13 @@ public class GifController2 {
 		av.setArticleId(Integer.parseInt(id));
 		av.setPage(page);
 		List<ArticleDetail> articleDetails = articleDetailServiceImpl.selectCurrPage(av);
-		
-		//更新查看次数
+		// 更新查看次数
 		ArticleVo articleVo = new ArticleVo();
 		articleVo.setId(Integer.valueOf(id));
-		articleVo.setOpen(article.getOpen()+1);
+		articleVo.setOpen(article.getOpen() + 1);
 		articleServiceImpl.updateArticleOpens(articleVo);
-		
-		//查出热情推荐
+
+		// 查出热情推荐
 		articleVo = new ArticleVo();
 		articleVo.setState(MyConstants.ARTICLE_STATE_ONLINE);
 		articleVo.setOrderBy("open");
@@ -143,9 +134,7 @@ public class GifController2 {
 		page.setStartPage(0);
 		articleVo.setPage(page);
 		List<Article> articleRanking = articleServiceImpl.selectCurrPage(articleVo);
-		
-		
-		
+
 		//向页面传值
 		mv.addObject("page",page);
 		mv.addObject("articleId",id);
