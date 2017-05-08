@@ -43,12 +43,15 @@ $(function(){
 				url: "getReadyJoke.html",
 				datatype: "json",
 				ajaxGridOptions: {contentType: 'application/json; charset=utf-8'},
-				colNames:['ID','标题','作者','修改时间'],
+				colNames:['ID','期数','标题','作者','创建时间','修改时间','open'],
 				colModel:[
 				    {name:'id',index:'id', hidden : true},
+				    {name:'periods',index:'periods', width:'10%', sortable : true,height:'30px'},
 					{name:'title',index:'title', width:'33%', sortable : true,height:'30px'},
-					{name:'author',index:'author', width:'33%', sortable : true,height:'30px'},
-					{name:'modifyDateStr',index:'modifyDateStr', width:'33%', sortable : true,height:'30px'},
+					{name:'author',index:'author', width:'15%', sortable : true,height:'30px'},
+					{name:'createDateStr',index:'createDateStr', width:'18%', sortable : true,height:'30px'},
+					{name:'modifyDateStr',index:'modifyDateStr', width:'18%', sortable : true,height:'30px'},
+					{name:'open',index:'open', width:'10%', sortable : true,height:'30px'},
 				], 
 				rowNum : 10,//一页显示多少条
 				rowList : [ 10, 20, 30 ],//可供用户选择一页显示多少条

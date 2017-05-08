@@ -3,8 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>管理台首页</title>
+<jsp:include page="../../meta.jsp"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/zcV0.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
@@ -100,7 +99,8 @@
 			    	</td>
 			    </tr>
 			  </table>
-				<input id="formButton" type="button" value="上传文件 "/>  
+				<input id="formButton" type="button" style="float:right;" value="上传文件 "/>
+				<div style="height: 40px;"></div>  
 			</form>
 		</div>
 	</div>

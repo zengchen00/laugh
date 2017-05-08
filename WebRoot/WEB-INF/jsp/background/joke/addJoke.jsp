@@ -3,8 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>管理台首页</title>
+<jsp:include page="../../meta.jsp"/>
  <script type="text/javascript">
    	 window.UMEDITOR_HOME_URL = "/laugh/umeditor/";
 	</script>
@@ -41,31 +40,17 @@
 				<input type="text" id="period" placeholder="期数…">
 			</fieldset>
 			<div class="space-12"></div>
-				<div id="tbody" class="widget-box widget-color-green">
-					<div class="widget-header widget-header-small">
-						<div class="wysiwyg-toolbar btn-toolbar center inline"></div>
+				 <div class="panel panel-info" style="background: #f6f6f1;">
+				    <div class="panel-body">
+						 <div class="wysiwyg-editor" id="myEditor" style="min-height: 600px;" contenteditable="true">
+ 						</div>
+				    </div>
+				    <div class="panel-footer">
+				    	<button id="saveContent" style="float:right;" ajaxUrl="${pageContext.request.contextPath}/background/saveJoke.html" class="btn btn-sm btn-danger btn-white btn-round">
+								<i class="ace-icon fa fa-floppy-o bigger-125"></i> 保存
+						</button>
 					</div>
-
-					<div class="widget-body">
-						<div class="widget-main no-padding">
-							<div class="wysiwyg-editor" id="myEditor" contenteditable="true">
-							</div>
-						</div>
-
-						<div class="widget-toolbox padding-4 clearfix">
-							<div class="btn-group pull-left">
-								<button class="btn btn-sm btn-default btn-white btn-round">
-									<i class="ace-icon fa fa-times bigger-125"></i> 取消
-								</button>
-							</div>
-
-							<div class="btn-group pull-right">
-								<button id="saveContent" ajaxUrl="${pageContext.request.contextPath}/background/saveJoke.html" class="btn btn-sm btn-danger btn-white btn-round">
-									<i class="ace-icon fa fa-floppy-o bigger-125"></i> 保存
-								</button>
-							</div>
-						</div>
-					</div>
+					<div class="space-12"></div>
 				</div>
 			</div>
 		</div>

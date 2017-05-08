@@ -31,7 +31,7 @@ var fullNumber = function(second){
 <input id="serverPath" ajaxUrl="${pageContext.request.contextPath}" type="hidden">
 	<div class="row">
  		 <div class="col-md-12">
- 		 	<img alt="" src="${pageContext.request.contextPath}/images/logo_back.png">
+ 		 	<img alt="梨花网" src="${pageContext.request.contextPath}/images/logo.png">
  		 	<span style="position: relative;left: 30px;top: 20px;">欢迎管理员：<font color="red">${currentUser.name}</font>
  		 	&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: black;" href="javascript:logout()">[&nbsp;安全退出&nbsp;]
  		 	<font style="float: right;position: relative;top: 20px;color: black;" id="today" class="currentDateTime"></font></span>

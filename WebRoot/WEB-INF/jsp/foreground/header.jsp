@@ -4,7 +4,7 @@
 		<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="navbar-header">
 			<a style="text-decoration:none;" href="${pageContext.request.contextPath}/foreground/index.html">
-		  　  <img style="height:50px;" src="${pageContext.request.contextPath}/images/logo.png">
+		  　  <img alt="梨花网" style="height:50px;" src="${pageContext.request.contextPath}/images/logo.png">
 		  </a>
 		  　</div>
 		  <div class="container">
@@ -29,7 +29,7 @@
 		    </div>
 		  </div>
 		</nav>
-		<div style="height:8rem;"></div>
+		<div style="height:10rem;"></div>
 	<script type="text/javascript">
 	var cur = ${cur};
 	if("1"==cur){
