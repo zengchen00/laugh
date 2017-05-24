@@ -79,5 +79,7 @@
 		</if>
 		  LIMIT #{page.startPage},#{page.numPerPage};
 	</select>
-	
+	<delete id="deleteById" parameterType="int">  
+        DELETE FROM f_article WHERE ID = #{id}  
+	</delete> 
 </mapper>

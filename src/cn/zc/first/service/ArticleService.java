@@ -15,4 +15,5 @@ public interface ArticleService {
 	public int selectTotal(int state);
 	public List<Article> selectCurrPage(ArticleVo avo);
 	public Article selectArticleById(int id);
+	public void deleteById(int id);
 }

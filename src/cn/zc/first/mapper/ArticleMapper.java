@@ -24,4 +24,6 @@ public interface ArticleMapper {
     List<Article> selectCurrPage(ArticleVo avo);
     
     Article selectArticleById(int id);
+    
+    void deleteById(int id);
 }

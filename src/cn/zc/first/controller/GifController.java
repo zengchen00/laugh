@@ -13,6 +13,7 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.NumberUtils;
 import org.apache.log4j.Logger;
+import org.aspectj.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
@@ -354,5 +355,38 @@ public class GifController extends BaseController{
 		}
 		multipartFile.transferTo(newImage);
 		return sdf.format(systemss) + File.separator + newFileName;
-	}    
+	}  
+	
+	/**
+	 * 彻底删除
+	 * @param map
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/realDelGif" ,produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String realDelGif(HttpServletRequest request, @RequestBody Map<String, String> map) throws Exception {
+		if (!map.containsKey("idList")) {
+			resultMap.put("success", false);
+			resultMap.put("msg", "操作失败！");
+			JSONObject json = JSONObject.fromObject(resultMap);
+			return json.toString();
+		}
+		String idList = map.get("idList");
+		String[] idListArry = idList.split(",");
+		for (String id : idListArry) {
+			articleServiceImpl.deleteById(Integer.valueOf(id));//删除文章
+			List<ArticleDetail> articleDetails = articleDetailServiceImpl.selectByAId(Integer.valueOf(id));
+			for (ArticleDetail articleDetail : articleDetails) {
+				new File(PropertiesUtil.getValue("gifServerPath") + File.separator + articleDetail.getImg_url()).deleteOnExit();
+				new File(PropertiesUtil.getValue("gifServerPath") + File.separator + articleDetail.getImg_url_des()).deleteOnExit();
+				articleDetailServiceImpl.deleteById(articleDetail.getId());
+			}
+			
+		}
+		resultMap.put("success", true);
+		resultMap.put("msg", "操作成功！");
+		JSONObject json = JSONObject.fromObject(resultMap);
+		return json.toString();
+	}
 }

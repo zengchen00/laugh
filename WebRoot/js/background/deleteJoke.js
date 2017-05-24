@@ -1,3 +1,32 @@
+var realDelete = function(){
+	var url = $("#serverPath").attr("ajaxUrl")+ "/background/realDelJoke.html";
+	var selectedIds = $("#grid-table").jqGrid("getGridParam", "selarrrow"); //返回选中多行ids
+	if(selectedIds.length < 0){
+		alert("请选择一行数据");
+		return;
+	}
+	var idList = "";
+	for (var id=0;id < selectedIds.length;id++) {
+		var rowData = $('#grid-table').getRowData(selectedIds[id]);
+		if(id == (selectedIds.length-1)){
+			idList = idList + rowData.id;
+		}else{
+			idList = idList + rowData.id + ",";
+		}
+	}
+	var data = new jsonData();
+	data.put("idList",idList);
+	var dataJson = data.toJson();
+	myAjax(url,dataJson,function(data){
+		if(data.success){
+			firstList();
+			alert(data.msg);
+		}else{
+			alert(data.msg);
+		}
+	},function(){},function(){},true);
+}
+
 var changeState = function(state){
 	var url = $("#serverPath").attr("ajaxUrl")+ "/background/doJokeState.html";
 	var selectedIds = $("#grid-table").jqGrid("getGridParam", "selarrrow"); //返回选中多行ids

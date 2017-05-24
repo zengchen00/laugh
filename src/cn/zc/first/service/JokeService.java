@@ -21,4 +21,6 @@ public interface JokeService {
 	public Joke selectPreSuf(JokeVo jokeVo);
 	
 	public void updateOpen(JokeVo jokeVo);
+
+	public void deleteById(int id);
 }

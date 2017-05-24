@@ -13,4 +13,8 @@ public interface ArticleDetailService {
 	public int countNum(int articleId);
 	
 	public  ArticleDetail selectById(int id);
+	
+	public List<ArticleDetail> selectByAId(int AId);
+	
+	public void deleteById(int id);
 }

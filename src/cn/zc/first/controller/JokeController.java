@@ -1,5 +1,6 @@
 package cn.zc.first.controller;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.zc.first.common.CommonFunctions;
 import cn.zc.first.common.MyConstants;
 import cn.zc.first.common.Page;
+import cn.zc.first.common.PropertiesUtil;
 import cn.zc.first.po.Article;
+import cn.zc.first.po.ArticleDetail;
 import cn.zc.first.po.ArticleVo;
 import cn.zc.first.po.Joke;
 import cn.zc.first.po.JokeVo;
@@ -229,5 +232,29 @@ public class JokeController extends BaseController{
 		JSONObject  json = JSONObject .fromObject(resultMap);
 		return  json.toString();
 	}
-	
+	/**
+	 * 彻底删除
+	 * @param map
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/realDelJoke" ,produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String realDelJoke(HttpServletRequest request, @RequestBody Map<String, String> map) throws Exception {
+		if (!map.containsKey("idList")) {
+			resultMap.put("success", false);
+			resultMap.put("msg", "操作失败！");
+			JSONObject json = JSONObject.fromObject(resultMap);
+			return json.toString();
+		}
+		String idList = map.get("idList");
+		String[] idListArry = idList.split(",");
+		for (String id : idListArry) {
+			jokeService.deleteById(Integer.valueOf(id));//删除文章
+		}
+		resultMap.put("success", true);
+		resultMap.put("msg", "操作成功！");
+		JSONObject json = JSONObject.fromObject(resultMap);
+		return json.toString();
+	}
 }

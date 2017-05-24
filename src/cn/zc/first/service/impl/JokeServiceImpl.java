@@ -55,5 +55,12 @@ public class JokeServiceImpl implements JokeService{
 	public void updateOpen(JokeVo jokeVo) {
 		jokeMapper.updateOpen(jokeVo);
 	}
+
+
+	@Override
+	public void deleteById(int id) {
+		jokeMapper.deleteById(id);
+		
+	}
 	
 }

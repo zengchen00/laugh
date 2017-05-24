@@ -18,4 +18,12 @@
 	<select id="selectById"  resultType="articleDetail">
  		select * from f_article_detail where id = #{id}
  	</select>
+ 	
+ 	<!--  -->
+	<select id="selectByAId" resultType="articleDetail" parameterType="int">
+		SELECT * FROM f_article_detail where ARTICLE_ID = #{AId};
+	</select>
+	<delete id="deleteById" parameterType="int">  
+        DELETE FROM f_article_detail WHERE ID = #{id}  
+	</delete> 
 </mapper>

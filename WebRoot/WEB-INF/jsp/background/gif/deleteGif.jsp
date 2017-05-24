@@ -40,8 +40,8 @@
 						<i class="ace-icon fa fa-bolt bigger-120 orange"></i>
 						还原
 						</button>
-						<button onclick="changeState(3)" class="btn btn-white btn-default btn-round">
-							<i class="ace-icon fa fa-trash-o red2"></i>删除
+						<button onclick="realDelete()" class="btn btn-white btn-default btn-round">
+							<i class="ace-icon fa fa-trash-o red2"></i>彻底删除
 						</button>
 				</p>
 				<table id="grid-table"></table>

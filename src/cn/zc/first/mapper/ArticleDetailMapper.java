@@ -14,4 +14,8 @@ public interface ArticleDetailMapper {
     int countNum(int articleId);
     
     ArticleDetail selectById(int id);
+    
+    List<ArticleDetail> selectByAId(int AId);
+    
+    void deleteById(int id);
 }

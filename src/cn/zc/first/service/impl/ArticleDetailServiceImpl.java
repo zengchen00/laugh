@@ -34,4 +34,14 @@ public class ArticleDetailServiceImpl implements ArticleDetailService {
 		return articleDetailMapper.selectById(id);
 	}
 
+	@Override
+	public List<ArticleDetail> selectByAId(int AId) {
+		return articleDetailMapper.selectByAId(AId);
+	}
+
+	@Override
+	public void deleteById(int id) {
+		articleDetailMapper.deleteById(id);
+	}
+
 }

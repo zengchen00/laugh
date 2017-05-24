@@ -40,6 +40,9 @@
 							<i class="ace-icon fa fa-bolt bigger-120 orange"></i>
 							还原
 							</button>
+							<button onclick="realDelete()" class="btn btn-white btn-default btn-round">
+								<i class="ace-icon fa fa-trash-o red2"></i>彻底删除
+							</button>
 					</p>
 					<table id="grid-table"></table>
 					<div id="grid-pager"></div>

@@ -40,4 +40,8 @@
 	<update id="updateOpen" parameterType="jokeVo">
 		UPDATE f_joke SET OPEN = #{open} WHERE ID = #{id};
 	</update>
+	
+	<delete id="deleteById" parameterType="int">  
+        DELETE FROM f_joke WHERE ID = #{id}  
+	</delete>
 </mapper>

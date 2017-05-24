@@ -20,4 +20,6 @@ public interface JokeMapper {
     Joke selectPreSuf(JokeVo jokeVo);
     
     void updateOpen(JokeVo jokeVo);
+
+	void deleteById(int id);
 }
