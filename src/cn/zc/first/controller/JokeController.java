@@ -1,6 +1,5 @@
 package cn.zc.first.controller;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -23,10 +22,6 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.zc.first.common.CommonFunctions;
 import cn.zc.first.common.MyConstants;
 import cn.zc.first.common.Page;
-import cn.zc.first.common.PropertiesUtil;
-import cn.zc.first.po.Article;
-import cn.zc.first.po.ArticleDetail;
-import cn.zc.first.po.ArticleVo;
 import cn.zc.first.po.Joke;
 import cn.zc.first.po.JokeVo;
 import cn.zc.first.po.User;
