@@ -103,10 +103,10 @@
 		<mvc:mapping path="/background/*"/>
 		<bean class="cn.zc.first.interceptor.LoginInterceptor"></bean>
 	</mvc:interceptor>
-<!-- 	<mvc:interceptor> -->
-<!-- 		<mvc:mapping path="/**"/> -->
-<!-- 		<bean class="cn.zc.first.interceptor.HandlerInterceptor1"></bean> -->
-<!-- 	</mvc:interceptor> -->
+	<mvc:interceptor>
+		<mvc:mapping path="/foreground/*"/>
+		<bean class="cn.zc.first.interceptor.VisitInterceptor"></bean>
+	</mvc:interceptor>
 <!-- 	<mvc:interceptor> -->
 <!-- 		<mvc:mapping path="/**"/> -->
 <!-- 		<bean class="cn.zc.first.interceptor.HandlerInterceptor2"></bean> -->

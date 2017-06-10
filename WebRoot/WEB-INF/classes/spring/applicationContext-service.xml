@@ -19,4 +19,5 @@
 <bean id="page" class="cn.zc.first.common.Page"/>
 <bean id="commentService" class="cn.zc.first.service.impl.CommentServiceImpl"/>
 <bean id="jokeService" class="cn.zc.first.service.impl.JokeServiceImpl"/>
+<bean id="visitRecordService" class="cn.zc.first.service.impl.VisitRecordServiceImpl"/>
 </beans>
