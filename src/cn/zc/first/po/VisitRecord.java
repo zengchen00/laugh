@@ -12,6 +12,7 @@ public class VisitRecord implements Serializable {
 	private String province;
 	private String city;
 	private String area;
+	private String comeTimeStr;
 	private Date visitDate;
 	public int getId() {
 		return id;
@@ -49,11 +50,15 @@ public class VisitRecord implements Serializable {
 	public void setVisitDate(Date visitDate) {
 		this.visitDate = visitDate;
 	}
-	
+	public String getComeTimeStr() {
+		return comeTimeStr;
+	}
+	public void setComeTimeStr(String comeTimeStr) {
+		this.comeTimeStr = comeTimeStr;
+	}
 	@Override
 	public String toString() {
 		return "VisitRecord [id=" + id + ", ip=" + ip + ", province=" + province + ", city=" + city + ", area=" + area
-				+ ", visitDate=" + visitDate + "]";
+				+ ", comeTimeStr=" + comeTimeStr + ", visitDate=" + visitDate + "]";
 	}
-	
 }

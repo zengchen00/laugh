@@ -20,5 +20,11 @@ public class MemcacheController extends BaseController{
 		}
 		
 	}
+	
+	@RequestMapping("/cachedTest1")
+	public void cachedTest1() throws Exception {
+		Memcached.set("1235", "我们");
+		System.out.println(Memcached.get("1235"));
+	}
 
 }

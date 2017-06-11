@@ -190,7 +190,7 @@ public class IpUtil {
  public static void main(String[] args) {  
 	 IpUtil addressUtils = new IpUtil();  
   // 测试ip 219.136.134.157 中国=华南=广东省=广州市=越秀区=电信  
-  String ip = "180.173.233.155";  
+  String ip = "114.215.45.79";  
   String address = "";  
   try {  
    address = addressUtils.getAddresses("ip="+ip, "utf-8");  

@@ -13,12 +13,12 @@ import cn.zc.first.po.VisitRecordVo;
 import cn.zc.first.service.VisitRecordService;
 
 @Component
-public class visitorTask {
+public class VisitorTask {
 	
 	@Autowired
 	private VisitRecordService visitRecordServiceImpl;
 	
-	Logger logger = Logger.getLogger(visitorTask.class);
+	Logger logger = Logger.getLogger(VisitorTask.class);
 	
     @Scheduled(cron = "0 50 23 * * ?")
     public void insertVisit(){
@@ -35,12 +35,13 @@ public class visitorTask {
     				vo.setProvince(detail[0]);
     				vo.setCity(detail[1]);
     				vo.setArea(detail[2]);
+    				vo.setComeTimeStr(detail[3]);
     				vo.setVisitDate(new Date());
     				visitRecordServiceImpl.insert(vo);
     				logger.info("do insert "+ map.getKey());
     			}
     		}
     	}
-    	
+    	Memcached.delete("ipMap");
     }
 }

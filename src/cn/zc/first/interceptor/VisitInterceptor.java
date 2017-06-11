@@ -45,6 +45,7 @@ public class VisitInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		try {
+			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String ip = getRemoteHost(request);
 			logger.info(ip + " come in");
 			Map<String, String> ipMap = (Map<String, String>) Memcached.get("ipMap");
@@ -59,9 +60,8 @@ public class VisitInterceptor implements HandlerInterceptor {
 
 			IpUtil addressUtils = new IpUtil();
 			String address = addressUtils.getAddresses("ip=" + ip, "utf-8");
-
 			if (StringUtils.isNotBlank(address)) {
-				ipMap.put(ip, address);
+				ipMap.put(ip, address+","+sf.format(new Date()));
 				logger.info(ip + "===" + address);
 			}
 			Memcached.set("ipMap", ipMap, new Date(1000 * 60 * 60 * 24));
